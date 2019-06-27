@@ -13,20 +13,34 @@ To install the Instana Microservices Application Monitoring file on the Ops Mana
 
 1. Download the product file from Pivotal Network.
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+2. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
 
-1. Under the **Import a Product** button, click **+** next to the version number of Instana Microservices Application Monitoring. 
+3. Under the **Import a Product** button, click **+** next to the version number of Instana Microservices Application Monitoring. 
 This adds the tile to your staging area.
 
-1. Click the newly added **Instana Microservices Application Monitoring** tile.
+4. Click the newly added **Instana Microservices Application Monitoring** tile.
 
-1. **This portion of the procedure should tell the users how to configure the newly added tile by
-walking them through the sections. Which fields should they fill out? What are the different
-checkboxes? Include relevant screenshots here.** 
+5. The Instana Agent requires minimal configuration: 
+  - Where is the Instana backend?
+  - What Agent key is to be used?
 
-1. Click **Save**.
+6. Click **Save**.
 
-1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install the Instana Microservices Application Monitoring tile.
+7. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install the Instana Microservices Application Monitoring tile.
 
-**If needed, include additional configuration information below. For example, maybe there are
-configuration options not required for installation but which could be useful for certain users.**
+8. The Instana Agent is rolled out to the entire PCF foundation. The foundation has to be updated to receive the Instana Agent. 
+
+Additional Configuration information: 
+
+The Instana Agent is integrated in PCF using [BOSH runtime configuration](https://bosh.io/docs/runtime-config/#addons). This means, 
+fundamentally, that whenever a new VM is created in the foundation by the BOSH Director, the Instana Agent is automatically added to it. 
+
+**Configuring automatic updates for the Instana Agents 
+
+The Instana tile is self-contained, meaning that it ships with a version of our Agent that has all sensors needed to monitor PCF, its services, and the
+applications running on it. However, we regularly release updates providing new sensors as well as performance improvements. 
+
+There are two options to get the newest version of the Instana Agent in your foundation: 
+- Install the [latest version](https://localhost:8000/ecosystem/cloudfoundry#installing-the-instana-agent-tile-in-opsmanager) of the Instana tile
+- Use the 'Agent configuration' tab of the Instana tile, which allows you to [configure the automatic updates](https://docs.instana.io/quick_start/agent_configuration/
+#agent-versioning-and-update-management) of the Instana Agents via the Ops Manager UI. 
