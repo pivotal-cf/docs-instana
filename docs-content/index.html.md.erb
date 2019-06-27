@@ -1,5 +1,5 @@
 ---
-title: Instana Automated APM for PCF (Beta)
+title: Instana Microservices Application Monitoring for PCF (Beta)
 owner: Partners
 ---
 
@@ -8,15 +8,14 @@ owner: Partners
 **If this product is in beta, keep and edit the warning note below.**
 <p class="note warning">
 <strong>Warning: </strong>
-The Instana Automated APM for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
+The Instana title: Instana Microservices Application Monitoring for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
 Do not use this product in a PCF production environment.
 </p>
 
 **This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does, 
 whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
 
-This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service 
-Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
+This documentation describes the Instana Microservices Application Monitoring for Pivotal Cloud Foundry (PCF). The Instana Microservices Application Monitoring for PCF enables developers
 
 **Note**: This description will appear under **OVERVIEW** in the tile's listing on 
 [Pivotal Network](http://network.pivotal.io).
@@ -46,11 +45,11 @@ handling between clients and the app.
 Make sure you list the key features of the tile (the integration). 
 We cannot accept a list of the key features of your product that we are integrating.
 
-YOUR-PRODUCT-NAME includes the following key features:
+Instana Microservices Application Monitoring includes the following key features:
 
-* Feature one
-* Feature two
-* Feature three
+* Fully automated deployment and management of the Instana Agent across an entire PCF foundation, including VMs spawned by other tiles like Pivotal's RabbitMQ for PCF 
+* Self-contained tiled includes agent that has all sensors needed to monitor PCF, its services, and the applications running on it 
+* Automated, continuous discovery of all PCF based applications and services
 
 
 
@@ -67,7 +66,7 @@ The following table provides version and version-support information about PRODU
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2019)</td>
+        <td>July 3, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
@@ -83,11 +82,11 @@ The following table provides version and version-support information about PRODU
     </tr>
     <tr>
        <td>BOSH stemcell version</td>
-       <td>Ubuntu Xenial</td>
+       <td>Ubuntu Trusty, Ubuntu Xenial, and Centos 7</td>
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
+        <td>AWS, Azure, GCP, OpenStack?, and vSphere?</td>
     </tr>
 </table>
 
@@ -98,7 +97,7 @@ The following table provides version and version-support information about PRODU
 A general requirement might be something like, "An AppDynamics account." 
 A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
 
-Instana APM has the following requirements:
+Instana Microservices Application Monitoring has the following requirements:
 
 + PREREQUISITE-1
 
@@ -111,7 +110,7 @@ Instana APM has the following requirements:
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to YOUR-SUPPORT-EMAIL.
+[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or visit https://support.instana.com/hc/en-us.
 
 ## <a id='license'></a>License
 
