@@ -7,7 +7,7 @@ owner: Partners
 
 This topic describes how to use **Instana Microservices Application Monitoring for PCF** tile.
 
-##<a id='using'></a> Using Instana Microservices Application Monitoring for PCF tile
+##<a id='using-infrastructure-map'></a> The PCF foundation in the Instana Infrastructure Map
 
 <!--
 **This topic should include any instructions for how to use the service or dashboard created by the tile. 
@@ -21,4 +21,26 @@ If you include a Troubleshooting section, follow the Symptom/Explanation format 
 The Instana Microservices Application Monitoring for PCF tile is entirely automated.
 After installation, the Instana agent is rolled out to all the supported Virtual Machines across the PCF foundation.
 
-For information on how to use the Instana dashboard, see the [Instana documentation](https://docs.instana.com).
+![An entire PCF foundation in Instana, Cloud Foundry applications are automatically discovered and monitored](./assets/pcf-foundation.png)
+
+The Infrastructure Map of Instana provides the end user with powerful tools to make sense or the largest deployments:
+
+- Dynamic Focus is is a robust, full blown editor capable of searching through multiple data contexts simultaneously; see the [Dynamic Focus](https://docs.instana.io/core_concepts/dynamic_focus) Instana documentation for more information on how to use Dynamic Focus
+- Grouping and perspectives are a way to organize large infrastructures in manageable groups; for more information, see the [](https://docs.instana.io/products/infrastructure_monitoring/) Instana documentation for more information on how to use groping and perspectives in the Infrastructure Map
+
+Out of the box, the Instana Microservices Application Monitoring for PCF tile provides the following BOSH-related tags to aid with grouping:
+
+- `agent_bosh_release_version` provides a short-hand to search for the version of the BOSH release deployed on the host; BOSH releases are upgraded in lock-step with Instana Microservices Application Monitoring for PCF tile versions to simplify the overview of the update state of your Instana Microservices Application Monitoring for PCF tile
+- `bosh_deployment`, `bosh_availability_zone`, `bosh_instance_name`, and `bosh_instance_id` are immediately-recognizable data for PCF operators familiar with [BOSH](https://bosh.io/docs/), the provisioning layer of PCF
+
+For more information on how to use the Instana dashboard, see the [Instana documentation](https://docs.instana.com).
+
+##<a id='using-application-perspectives'></a> Cloud Foundry applications in Instana's Application Perspectives
+
+The Cloud Foundry applications deployed on a PCF foundation monitored with the Instana Microservices Application Monitoring for PCF tile are automatically monitored and their performance is readily available on Instana's dashboards.
+
+![A Node.js Cloud Foundry application monitored with the Instana Microservices Application Monitoring for PCF tile](./assets/cf-node-app.png)
+
+## More on how to use Instana to monitor Microservices
+
+For more information on how to use Instana's advanced tracing and monitoring capabilities, see the [Instana documentation](https://docs.instana.io). 

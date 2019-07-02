@@ -5,43 +5,51 @@ owner: Partners
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to install and configure Instana Microservices Application Monitoring for PCF.
+This topic describes how to install and configure Instana Microservices Application Monitoring for PCF tile.
 
 ##<a id='install'></a> Install and Configure Instana Microservices Application Monitoring for PCF
 
 To install the **Instana Microservices Application Monitoring for PCF** tile on the Ops Manager Installation Dashboard, do the following:
 
 1. Download the product file from Pivotal Network.
-
 2. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
-
 3. Under the **Import a Product** button, click **+** next to the version number of **Instana Microservices Application Monitoring for PCF**. 
 This adds the tile to your staging area.
-
 4. Click the newly added **Instana Microservices Application Monitoring for PCF** tile.
+![The Instana Microservices Application Monitoring for PCF tile is added, and it need a minimal configuration](./assets/tile-added.png)
+5. The **Instana Microservices Application Monitoring for PCF** tile requires minimal configuration:
 
-5. The **Instana Microservices Application Monitoring for PCF** tile requires minimal configuration in the **Backend connection** menu:
+  - **Backend connection** menu:
+    - **Endpoint host**: the DNS name of the Instana backend, e.g., `saas-us-west-2.instana.io`
+    - **Endpoint port**: the port number on which the Instana backend listens; for the SaaS offering of Instana, the value is `443`, but it can be configured differently for on-premise Instana backend installations
+    - **Agent key**: the secret used by the Instana agent to authenticate itself to the Instana backend
 
-  - **Endpoint host**: the DNS name of the Instana backend, e.g., `saas-us-west-2.instana.io`
-  - **Endpoint port**: the port number on which the Instana backend listens; for the SaaS offering of Instana, the value is `443`, but it can be configured differently for on-premise Instana backend installations
-  - **Agent key**: the secret used by the Instana agent to authenticate itself to the Instana backend
+  **NOTE:** The data required for the configurations listed above is readily available in the Instana dashboard, under **More** &gt; **Management Portal** &gt; **Install agent**.
 
-  The data required is readily available in the Instana dashboard, under **More** &gt; **Management Portal** &gt; **Install agent**.
+  - **Agent configuration** menu:
+    - **Update mode**: if the agent should update itself regularly (recommended), or rather keep to a specific version; see [Configuring automatic updates for the Instana Agents](#updates) for more information
 
 6. Click **Save**.
-
+![The Instana Microservices Application Monitoring for PCF tile is configured](./assets/configure-updates.png)
 7. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install the **Instana Microservices Application Monitoring for PCF** tile.
 
 8. The Instana agent is rolled out to the PCF foundation. 
 
 After the changes have been rolled out, whenever a new Virtual Machine is created in the PCF foundation, for example by adding new tiles or creating new service instances, the Instana Agent is automatically added to it.
 
-##<a id='updates'></a> Configuring automatic updates for the Instana Agents
+##<a id='updates'></a> Configuring updates for the Instana Agents
 
 The Instana tile is self-contained, meaning that it ships with a version of the Instana agent that has all sensors needed to monitor PCF, its services, and the
-applications running on it. However, Instana regularly release agent updates providing new sensors as well as performance improvements. 
+applications running on it.
 
-There are two options to get the newest version of the Instana agent in your foundation: 
-- Install the [latest version](#installing-the-instana-agent-tile-in-opsmanager) of the **Instana Microservices Application Monitoring for PCF** tile
-- Use the **Agent configuration** tab of the Instana tile, which allows you to [configure the automatic updates](https://docs.instana.io/quick_start/agent_configuration/
-#agent-versioning-and-update-management) of the Instana agents via the Ops Manager. 
+Nevertheless, Instana regularly release agent updates providing new sensors as well as performance improvements, and it is highly recommended to keep the agents updated to enjoy the continous improvements in terms of features, performance, and reliability.
+
+There are the following options to keep updated the Instana agents deployed via the Instana Microservices Application Monitoring for PCF:
+
+- Install the latest version of the **Instana Microservices Application Monitoring for PCF** tile; for instructions, see the [Install and Configure Instana Microservices Application Monitoring for PCF](#install) section.
+- Use the **Agent configuration** tab of the Instana tile, which allows you to configure the update policies of the Instana agents via the Ops Manager:
+  - _dynamic_ updates: the Instana agents can be instructed to update themselves at regularly intervals, once a day, either once a week or every day
+  - _static_ updates: the Instana agents can pull specific versions of their components, based on the Git commits available on the [Instana Agent Updates](https://github.com/instana/agent-updates) repository. Unless the **Version** field is set, the Instana agents will use the components shipped with the installed version of the Instana Microservices Application Monitoring for PCF tile
+
+Instana advises to use dynamic updates whenever compatible with the policies of the end users. In cases requiring advanced control in terms of how updates are rolled out, end users can point the agents to internal Maven-compatible repositories, as means of tighly regulating the rollout of updates.
+For more information about static updates, see the [Agent Versioning and Update Management](https://docs.instana.io/quick_start/agent_configuration/#agent-versioning-and-update-management) section of the Instana documentation.
