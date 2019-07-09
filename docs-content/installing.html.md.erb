@@ -37,7 +37,7 @@ This adds the tile to your staging area.
 
 After the changes have been rolled out, whenever a new Virtual Machine is created in the PCF foundation, for example by adding new tiles or creating new service instances, the Instana agent is automatically added to it.
 
-##<a id='updates'></a> Configuring updates for the Instana agents
+##<a id='updates'></a> Configuring Updates for the Instana Agents
 
 Instana Microservices Application Monitoring for PCF is self-contained, meaning that it ships with a version of the Instana agent that has all sensors needed to monitor PCF, its services, and the applications running on it.
 
@@ -45,10 +45,10 @@ Nevertheless, Instana regularly release agent updates providing new sensors as w
 
 There are the following options to keep updated the Instana agents deployed via the Instana Microservices Application Monitoring for PCF:
 
-- Install the latest version of Instana Microservices Application Monitoring for PCF; for instructions, see the [Install and Configure Instana Microservices Application Monitoring for PCF](#install) section.
+- Install the latest version of Instana Microservices Application Monitoring for PCF; for instructions, see the [Install and Configure Instana Microservices Application Monitoring for PCF](#install) section
 - Use the **Agent Configuration** tab of the Instana tile, which allows you to configure the update policies of the Instana agents via the Ops Manager:
   - _Dynamic Updates_: the Instana agents can be instructed to update themselves at regularly intervals, once a day, either once a week or every day
-  - _Static Updates_: the Instana agents can pull specific versions of their components, based on the Git commits available on the [Instana Agent Updates](https://github.com/instana/agent-updates) repository. Unless the **Version** field is set, the Instana agents will use the components shipped with the installed version of Instana Microservices Application Monitoring for PCF.
+  - _Static Updates_: the Instana agents can pull specific versions of their components, based on the Git commits available on the [Instana Agent Updates](https://github.com/instana/agent-updates) repository. Unless the **Version** field is set, the Instana agents will use the components shipped with the installed version of Instana Microservices Application Monitoring for PCF
 
 Instana advises the use of dynamic updates whenever compatible with the policies of the end users.
 In cases requiring advanced control in terms of how updates are rolled out, end users can point the agents to internal Maven-compatible repositories, as means of tighly regulating the rollout of updates.
