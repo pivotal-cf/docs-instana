@@ -119,7 +119,7 @@ If you do not already have an Instana backend, Instana offers a self-service tri
 <!--
 Cloud Foundry operators are responsible for installing and updating agents. With BOSH it is best to use the Instana static agent, as such, rolling out of agent fixes requires Cloud Foundry operator action.
 -->
-Monitoring .NET Core applications running with the .Net Core buildpack is not supported.
+Monitoring .NET Core applications running with the dotnet-buildpack is not supported.
 The Instana agent does not automatically trace them and they do not appear in the Instana dashboard.
 
 Tracing PHP applications running with the PHP buildpack is not supported.
@@ -129,9 +129,12 @@ Tracing Python applications running with the Python buildpack requires following
 The supported activation method requires setting an environment variable, which can be specified in the `cf push` manifest as shown in the [Deploying with App Manifests](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html) documentation of Cloud Foundry.
 
 Deploying the Instana agent on Pivotal Container Services (PKS) is not supported.
-The Instana agent can not be installed on the virtual machines powering PKS.
+The Instana agent is installed on the virtual machines powering PKS, but Instana's Kubernetes monitoring will not be engaged.
 
-Windows-based Diego Cells are not supported. The Instana agent can not be installed on the Windows-based Deigo cells.
+Windows-based Diego Cells are not supported. The Instana agent will not be installed on the Windows-based Diego cells.
+
+When using the java-buildpack with an OpenJDK JRE version 8, the `USE_ATTACH_TOOLS=true` advanced configuration option for the Instana agent must be used to enable tracing.
+See the [Configuring Advanced Configurations for the Instana Agents](./index.html.md#advanced-configurations) section for more information on how to apply the `USE_ATTACH_TOOLS=true` advanced configuration option.
 
 ## <a id="feedback"></a>Feedback
 

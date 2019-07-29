@@ -53,3 +53,15 @@ There are the following options to keep updated the Instana agents deployed via 
 Instana advises the use of dynamic updates whenever compatible with the policies of the end users.
 In cases requiring advanced control in terms of how updates are rolled out, end users can point the agents to internal Maven-compatible repositories, as means of tighly regulating the rollout of updates.
 For more information about static updates, see the [Agent Versioning and Update Management](https://docs.instana.io/quick_start/agent_configuration/#agent-versioning-and-update-management) section of the Instana documentation.
+
+##<a id='advanced-configurations'></a> Configuring Advanced Configurations for the Instana Agents
+
+Some advanced configurations of the Instana agent are triggered via environment variables.
+Environment variables on the Instana agent are set using the **Advanced configurations > Environment settings** menu.
+
+![Setting the `USE_ATTACH_TOOLS` advanced configuration in the **Advanced configurations** menu](./assets/advanced-settings.png)
+
+After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the PCF foundation. It is possible to roll out changes only to the relevant tiles in the PCF foundation.
+For example, the `USE_ATTACH_TOOLS` advanced configuration is relevant only for Diego cells, so the **Apply Changes** process could be run to affect only the BOSH Director, Instana Microservices Application Monitoring for PCF and Pivotal Application Service tiles.
+
+In general, the **Advanced configurations > Environment settings** should be used only when instructed by Instana's support or explicitly mentioned in this documentation.

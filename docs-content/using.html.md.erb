@@ -44,3 +44,77 @@ The applications deployed on a PCF foundation monitored with the Instana Microse
 ## More on How to Use Instana to Monitor Microservices
 
 For more information about how to use Instana's advanced tracing and monitoring capabilities, see the [Instana documentation](https://docs.instana.io). 
+
+##<a id='deploying-cf-applications'></a> Deployment of Cloud Foundry Applications
+
+The goal of Instana Microservices Application Monitoring for PCF is to entirely automate the monitoring of Cloud Foundry applications and their services; while we work on achieving the goal, in some cases some minor configuration steps may be required, depending on which type of Cloud Foundry application is pushed.
+
+###<a id='deploying-cf-applications-java-openjdk'></a> Deploying Java applications using the Java Buildpack and OpenJDK 8
+
+For the majority of Java applications, their monitoring is entirely automated by the Instana agent.
+However, if Java Virtual Machine (JVM) is an OpenJDK 8, the `USE_ATTACH_TOOLS=true` advanced configuration option must be passed as environment of the Instana agent via the **Advanced configurations > Environment settings** functionality of the tile; see [Configuring Advanced Configurations for the Instana Agents](./installing.html#advanced-configurations) for more information on how to apply the `USE_ATTACH_TOOLS=true` advanced configuration option.
+
+###<a id='deploying-cf-applications-dotnetcore'></a> Deploying DotNet Core Apps with the DotNet Core Buildpack
+
+The Instana Microservices Application Monitoring for PCF supports the monitoring of _non self-contained_ DotNet Core applications by following the following steps:
+
+- Add the Instana Nuget package to the Cloud Foundry application by performing the following command:
+
+```sh
+dotnet add myproject.csproj package Instana.Profiler.Linux.Bundled.Refs
+```
+
+- Prepare the DotNet Core application to be published: 
+
+```sh
+dotnet publish --self-contained=false -c Release
+```
+
+Notice that Instana Microservices Application Monitoring for PCF does not support Self-Contained Deployments (SCD) of .NET Core applications, which are also discouraged by the .NET Core Buildpack.
+For more information on the support of the `dotnet-core-buildpack` for SCD, see the [Self-Contained Deployments](https://docs.cloudfoundry.org/buildpacks/dotnet-core/index.html#self-contained) section of the .NET Core Buildpack documentation.
+
+- Add the following environment variables to the application manifest:
+
+```yaml
+---
+applications:
+- name: <application_name>
+  path: bin/Release/netcoreapp2.1/publish/
+  env:
+    CORECLR_ENABLE_PROFILING: 1
+    CORECLR_PROFILER: "{cf0d821e-299b-5307-a3d8-b283c03916dd}"
+    CORECLR_PROFILER_PATH: "/home/vcap/app/instana_tracing/CoreProfiler.so"
+    LD_LIBRARY_PATH: "/home/vcp/app/instana_tracing"
+```
+
+Notice that the value of the `path` variable may change depending on the .NET Core SDK being used and the name of the configuration passed to the `dotnet publish --self-contained=false -c Release` via the `-c` flag, which in this example is `Release`.
+
+- Push the Cloud Foundry application using the `cf push` command:
+
+```sh
+cf push
+```
+
+Notice that the command above assumes that the application's `manifest.mf` file resides in the folder from which the `cf push` command is executed.
+See [Deploying with App Manifests](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html) page for more information on how to use the `cf push` command together with a manifest file.
+
+###<a id='deploying-cf-applications-nodejs'></a> Deploying Node.js Apps with the Node.js Buildpack
+
+The only step necessary is adding the `@instana/collector` package; see the [Installation](https://docs.instana.io/ecosystem/node-js/#installation) section of the Instana Node.js documentation.
+
+###<a id='deploying-cf-applications-python'></a> Deploying Python Apps with the Python Buildpack
+
+Monitoring Python Cloud Foundry applications requires the following steps:
+
+- Add the `instana` package to the `requirements.txt` file
+- Add to the application manifest the `AUTOWRAPT_BOOTSTRAP` environment variable with value `instana` as showed below
+
+```yaml
+---
+applications:
+- name: test-python-flask
+  buildpacks:
+    - python_buildpack
+  env:
+    AUTOWRAPT_BOOTSTRAP: instana
+```
