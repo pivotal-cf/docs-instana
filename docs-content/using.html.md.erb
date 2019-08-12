@@ -19,7 +19,6 @@ If you include a Troubleshooting section, follow the Symptom/Explanation format 
 
 Instana Microservices Application Monitoring for PCF is entirely automated.
 After installation, the Instana agent is rolled out to all the supported Virtual Machines across the PCF foundation.
-Cloud Foundry applications are automatically discovered and monitored, as well as containers deployed on Kubernetes clusters provisioned via Pivotal Container Service (PKS).
 
 ![An entire PCF foundation in Instana, Cloud Foundry applications are automatically discovered and monitored](./assets/pcf-foundation.png)
 
@@ -35,18 +34,9 @@ Out of the box, Instana Microservices Application Monitoring for PCF provides th
 
 For more information about how to use the Instana dashboard, see the [Instana documentation](https://docs.instana.com).
 
-##<a id='k8s-pks'></a> Monitoring Kubernetes clusters created via Enterprise PKS
+##<a id='using-application-perspectives'></a> Cloud Foundry Applications in Instana's Application Perspectives
 
-Instana has powerful Kubernetes monitoring capabilities, both in terms of applications running in containers on top of the Kubernetes cluster, as well as monitoring the cluster itself.
-The Instana agent is rolled out automatically to Kubernetes clusters created via the Enterprise PKS tile.
-
-![A Kubernetes cluster created via the Enterprise PKS automatically monitored by Instana Microservices Application Monitoring for PCF tile](./assets/pks-k8s-cluster.png)
-
-For more information about the Kubernetes capabilities of Instana, visit the [Kubernetes](https://docs.instana.io/ecosystem/kubernetes/) page of the Instana documentation.
-
-##<a id='using-application-perspectives'></a> PCF Applications in Instana's Application Perspectives
-
-With Instana Microservices Application Monitoring for PCF, applications deployed on Pivotal Application Service or on Kubernetes clusters created with Enterprise PKS are automatically monitored and their performance is readily available on Instana's dashboards.
+The applications deployed on a PCF foundation monitored with the Instana Microservices Application Monitoring for PCF tile are automatically monitored and their performance is readily available on Instana's dashboards.
 
 ![A Node.js Cloud Foundry application monitored with the Instana Microservices Application Monitoring for PCF tile](./assets/cf-node-app.png)
 
