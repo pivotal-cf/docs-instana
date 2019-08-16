@@ -69,15 +69,15 @@ The following table provides version and version-support information about Insta
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>1.157.1</td>
+        <td>1.160.0</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>July 17, 2019</td>
+        <td>August 16, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>Build 157</td>
+        <td>Build 160</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
@@ -119,8 +119,7 @@ If you do not already have an Instana backend, Instana offers a self-service tri
 <!--
 Cloud Foundry operators are responsible for installing and updating agents. With BOSH it is best to use the Instana static agent, as such, rolling out of agent fixes requires Cloud Foundry operator action.
 -->
-Monitoring .NET Core applications running with the dotnet-buildpack is not supported.
-The Instana agent does not automatically trace them and they do not appear in the Instana dashboard.
+Monitoring .NET Core applications running with the dotnet-buildpack is supported for non self-contained applications; see the [Deploying DotNet Core Apps with the DotNet Core Buildpack](./using.html#deploying-cf-applications-dotnetcore) section for more information.
 
 Tracing PHP applications running with the PHP buildpack is not supported.
 The Instana agent does not automatically trace them.
