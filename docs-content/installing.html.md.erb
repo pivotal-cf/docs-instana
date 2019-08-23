@@ -47,14 +47,29 @@ There are the following options to keep updated the Instana agents deployed via 
 
 - Install the latest version of Instana Microservices Application Monitoring for PCF; for instructions, see the [Install and Configure Instana Microservices Application Monitoring for PCF](#install) section
 - Use the **Agent Configuration** tab of the Instana tile, which allows you to configure the update policies of the Instana agents via the Ops Manager:
-  - _Dynamic Updates_: the Instana agents can be instructed to update themselves at regularly intervals, once a day, either once a week or every day
-  - _Static Updates_: the Instana agents can pull specific versions of their components, based on the Git commits available on the [Instana Agent Updates](https://github.com/instana/agent-updates) repository. Unless the **Version** field is set, the Instana agents will use the components shipped with the installed version of Instana Microservices Application Monitoring for PCF
+  - _Static Updates_: the Instana agents will run in the version shipped with the installed tile version and never update themselves unless a new versiomn of the tile is rolled out.
+  - _Dynamic Updates_ with _Regular updates_: the Instana agents can be instructed to update themselves at regularly intervals, once a day, either once a week or every day.
+  - _Dynamic Updates_ with _Pinned version_: the Instana agents can pull specific versions of their components, based on the Git commits available on the [Instana Agent Updates](https://github.com/instana/agent-updates) repository.
 
-Instana advises the use of dynamic updates whenever compatible with the policies of the end users.
+Instana advises the use of _Dynamic Updates_ with _Regular updates_ whenever compatible with the policies of the end users.
+_Dynamic Updates_ with _Regular updates_ also avoids the need of applying changes via Ops Manager, as the agents will update themselves without having to be redeployed.
+
+If strict control is desired in terms of agent updates, _Dynamic Updates_ with _Pinned version_ provides fine-grained control without requiring updating the tile.
+To change which version is pinned, the configuration change will require applying the change via Ops Manager, including in the change all tiles and the respective errands that are responsible for updating the Virtual Machines to which the agent updates need to be rolled out.
+
 In cases requiring advanced control in terms of how updates are rolled out, end users can point the agents to internal Maven-compatible repositories, as means of tighly regulating the rollout of updates.
-For more information about static updates, see the [Agent Versioning and Update Management](https://docs.instana.io/quick_start/agent_configuration/#agent-versioning-and-update-management) section of the Instana documentation.
+For more information about configuring agent updates, see the [Agent Versioning and Update Management](https://docs.instana.io/quick_start/agent_configuration/#agent-versioning-and-update-management) section of the Instana documentation.
 
 ##<a id='advanced-configurations'></a> Configuring Advanced Configurations for the Instana Agents
+
+Instana Microservices Application Monitoring for PCF offers some configuration options that are seldom required through the **Advanced configurations** menu.
+
+###<a id='download-key'></a> Download Key
+
+The **Advanced configurations > Download key** setting allows to specify which secret is used by agents to download their updates.
+This setting is only ever required in case you are running you own mirror of Instana's updates repository and have set up a different authentication secret than the value of **Backend connection > Agent key**.
+
+###<a id='agent-environment'></a> Agent Environment
 
 Some advanced configurations of the Instana agent are triggered via environment variables.
 Environment variables on the Instana agent are set using the **Advanced configurations > Environment settings** menu.
@@ -65,3 +80,4 @@ After saving the new configurations, it is necessary to **Apply Changes** in the
 For example, the `USE_ATTACH_TOOLS` advanced configuration is relevant only for Diego cells, so the **Apply Changes** process could be run to affect only the BOSH Director, Instana Microservices Application Monitoring for PCF and Pivotal Application Service tiles.
 
 In general, the **Advanced configurations > Environment settings** should be used only when instructed by Instana's support or explicitly mentioned in this documentation.
+
