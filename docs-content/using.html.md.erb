@@ -34,24 +34,6 @@ Out of the box, Instana Microservices Application Monitoring for PCF provides th
 
 For more information about how to use the Instana dashboard, see the [Instana documentation](https://docs.instana.com).
 
-## <a id='using-application-perspectives'></a> Cloud Foundry Dashboards (Beta)
-
-_Note_: This section describes a preview which is currently in Beta. Please reach out to [support](https://support.instana.com) to request access.
-
-The CloudFoundry application platform is an important and distinct part of your overall application stack. To encompass this importance Instana has dedicated support for CloudFroundry applications. This starts by its own dedicated top-level element in the Instana UI which makes it easily accessible and easy to understand for Cloud Foundry users. At the same time all information is deeply linked via the DynamicGraph into other product areas like Infrastructure, Application Perspectives, and Tracing. 
-
-### <a id='listing-applications'></a> Listing Applications
-
-By default Instana lists all application it detects from all reporting clusters. The applications are easily searchable or sortable by the most relevant information like `state`, `organization` or `space`:
-
-![Listing CloudFoundry Applications](./assets/cf-list-apps.png)
-
-### <a id='application-dashboards'></a> Application Dashboard
-
-The CloudFoundry Application dashboard contains the most important information for an application to check for the status and any problems. It lists the Garden containers that this application is made of and links to a detailed [Garden Container](/ecosystem/garden/) dashboard. It also provdes access to all calls to this application via the ["Analyze Calls"](/core_concepts/tracing/) button.
-
-![CloudFoundry Application Dashboard](./assets/cf-app-dashboard.png)
-
 ##<a id='using-application-perspectives'></a> Cloud Foundry Applications in Instana's Application Perspectives
 
 The applications deployed on a PCF foundation monitored with the Instana Microservices Application Monitoring for PCF tile are automatically monitored and their performance is readily available on Instana's dashboards.
@@ -66,9 +48,10 @@ For more information about how to use Instana's advanced tracing and monitoring 
 
 The goal of Instana Microservices Application Monitoring for PCF is to entirely automate the monitoring of Cloud Foundry applications and their services; while we work on achieving the goal, in some cases some minor configuration steps may be required, depending on which type of Cloud Foundry application is pushed.
 
-###<a id='deploying-cf-applications-java'></a> Deploying Java applications using the Java Buildpack
+###<a id='deploying-cf-applications-java-openjdk'></a> Deploying Java applications using the Java Buildpack and OpenJDK 8
 
-The Instana agent will automatically discover Java applications and monitor them, without even restart needed.
+For the majority of Java applications, their monitoring is entirely automated by the Instana agent.
+However, if Java Virtual Machine (JVM) is an OpenJDK 8, the `USE_ATTACH_TOOLS=true` advanced configuration option must be passed as environment of the Instana agent via the **Advanced configurations > Environment settings** functionality of the tile; see [Configuring Advanced Configurations for the Instana Agents](./installing.html#advanced-configurations) for more information on how to apply the `USE_ATTACH_TOOLS=true` advanced configuration option.
 
 ###<a id='deploying-cf-applications-dotnetcore'></a> Deploying DotNet Core Apps with the DotNet Core Buildpack
 
