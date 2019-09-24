@@ -1,23 +1,23 @@
 ---
-title: Installing and Configuring Instana Microservices Application Monitoring for PCF
+title: Installing and Configuring Instana Microservices Application Monitoring for Pivotal Platform
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to install and configure Instana Microservices Application Monitoring for PCF.
+This topic describes how to install and configure Instana Microservices Application Monitoring for Pivotal Platform.
 
-##<a id='install'></a> Install and Configure Instana Microservices Application Monitoring for PCF
+##<a id='install'></a> Install and Configure Instana Microservices Application Monitoring for Pivotal Platform
 
-To install Instana Microservices Application Monitoring for PCF on the Ops Manager Installation Dashboard, do the following:
+To install Instana Microservices Application Monitoring for Pivotal Platform on the Ops Manager Installation Dashboard, do the following:
 
 1. Download the product file from Pivotal Network.
 2. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
-3. Under the **Import a Product** button, click **+** next to the version number of Instana Microservices Application Monitoring for PCF.
+3. Under the **Import a Product** button, click **+** next to the version number of Instana Microservices Application Monitoring for Pivotal Platform.
 This adds the tile to your staging area.
-4. Click the newly added Instana Microservices Application Monitoring for PCF tile.
-![The Instana Microservices Application Monitoring for PCF tile is added, and it need a minimal configuration](./assets/tile-added.png)
-5. Instana Microservices Application Monitoring for PCF requires minimal configuration:
+4. Click the newly added Instana Microservices Application Monitoring for Pivotal Platform tile.
+![The Instana Microservices Application Monitoring for Pivotal Platform tile is added, and it need a minimal configuration](./assets/tile-added.png)
+5. Instana Microservices Application Monitoring for Pivotal Platform requires minimal configuration:
 
   - **Backend connection** menu:
     - **Endpoint host**: the DNS name of the Instana backend, e.g., `saas-us-west-2.instana.io`
@@ -30,22 +30,22 @@ This adds the tile to your staging area.
     - **Update mode**: if the agent should update itself regularly (recommended), or rather keep to a specific version; see [Configuring automatic updates for the Instana Agents](#updates) for more information
 
 6. Click **Save**.
-![The Instana Microservices Application Monitoring for PCF tile is configured](./assets/configure-updates.png)
-7. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install Instana Microservices Application Monitoring for PCF.
+![The Instana Microservices Application Monitoring for Pivotal Platform tile is configured](./assets/configure-updates.png)
+7. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install Instana Microservices Application Monitoring for Pivotal Platform.
 
-8. The Instana agent is rolled out to the PCF foundation.
+8. The Instana agent is rolled out to the Pivotal Platform foundation.
 
-After the changes have been rolled out, whenever a new Virtual Machine is created in the PCF foundation, for example by adding new tiles or creating new service instances, the Instana agent is automatically added to it.
+After the changes have been rolled out, whenever a new Virtual Machine is created in the Pivotal Platform foundation, for example by adding new tiles or creating new service instances, the Instana agent is automatically added to it.
 
 ##<a id='updates'></a> Configuring Updates for the Instana Agents
 
-Instana Microservices Application Monitoring for PCF is self-contained, meaning that it ships with a version of the Instana agent that has all sensors needed to monitor PCF, its services, and the applications running on it.
+Instana Microservices Application Monitoring for Pivotal Platform is self-contained, meaning that it ships with a version of the Instana agent that has all sensors needed to monitor Pivotal Platform, its services, and the applications running on it.
 
 Nevertheless, Instana regularly release agent updates providing new sensors as well as performance improvements, and it is highly recommended to keep the agents updated to enjoy the continous improvements in terms of features, performance, and reliability.
 
-There are the following options to keep updated the Instana agents deployed via the Instana Microservices Application Monitoring for PCF:
+There are the following options to keep updated the Instana agents deployed via the Instana Microservices Application Monitoring for Pivotal Platform:
 
-- Install the latest version of Instana Microservices Application Monitoring for PCF; for instructions, see the [Install and Configure Instana Microservices Application Monitoring for PCF](#install) section
+- Install the latest version of Instana Microservices Application Monitoring for Pivotal Platform; for instructions, see the [Install and Configure Instana Microservices Application Monitoring for Pivotal Platform](#install) section
 - Use the **Agent Configuration** tab of the Instana tile, which allows you to configure the update policies of the Instana agents via the Ops Manager:
   - _Static Updates_: the Instana agents will run in the version shipped with the installed tile version and never update themselves unless a new versiomn of the tile is rolled out.
   - _Dynamic Updates_ with _Regular updates_: the Instana agents can be instructed to update themselves at regularly intervals, once a day, either once a week or every day.
@@ -62,7 +62,7 @@ For more information about configuring agent updates, see the [Agent Versioning 
 
 ##<a id='advanced-configurations'></a> Configuring Advanced Configurations for the Instana Agents
 
-Instana Microservices Application Monitoring for PCF offers some configuration options that are seldom required through the **Advanced configurations** menu.
+Instana Microservices Application Monitoring for Pivotal Platform offers some configuration options that are seldom required through the **Advanced configurations** menu.
 
 ###<a id='download-key'></a> Download Key
 
@@ -76,8 +76,8 @@ Environment variables on the Instana agent are set using the **Advanced configur
 
 ![Setting the `USE_ATTACH_TOOLS` advanced configuration in the **Advanced configurations** menu](./assets/advanced-settings.png)
 
-After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the PCF foundation. It is possible to roll out changes only to the relevant tiles in the PCF foundation.
-For example, the `USE_ATTACH_TOOLS` advanced configuration is relevant only for Diego cells, so the **Apply Changes** process could be run to affect only the BOSH Director, Instana Microservices Application Monitoring for PCF and Pivotal Application Service tiles.
+After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the Pivotal Platform foundation. It is possible to roll out changes only to the relevant tiles in the Pivotal Platform foundation.
+For example, the `USE_ATTACH_TOOLS` advanced configuration is relevant only for Diego cells, so the **Apply Changes** process could be run to affect only the BOSH Director, Instana Microservices Application Monitoring for Pivotal Platform and Pivotal Application Service tiles.
 
 In general, the **Advanced configurations > Environment settings** should be used only when instructed by Instana's support or explicitly mentioned in this documentation.
 
