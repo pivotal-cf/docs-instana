@@ -69,6 +69,15 @@ Instana Microservices Application Monitoring for Pivotal Platform offers some co
 The **Advanced configurations > Download key** setting allows to specify which secret is used by agents to download their updates.
 This setting is only ever required in case you are running you own mirror of Instana's updates repository and have set up a different authentication secret than the value of **Backend connection > Agent key**.
 
+###<a id='multiple-instana-backends'></a> Multiple Instana Backends
+
+The **Backend connection > Report to additional Instana backends** setting allows to specify additional backends, on top of the one that is specified in the **Backend connection** tab.
+The proxy settings specified in the **Backend connection** tab apply also to the backends configured via the **Backend connection > Report to additional Instana backends** setting.
+Up to three additional backends are supported, so the Instana agents can be configured to report to up to four backends; due to technical limitations, the Instana Microservices Application Monitoring tile will allow to specify any number of additional backends, but any beyond the third will be ignored.
+
+After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the Pivotal Platform foundation.
+It is possible to roll out changes only to the relevant tiles in the Pivotal Platform foundation.
+
 ###<a id='agent-environment'></a> Agent Environment
 
 Some advanced configurations of the Instana agent are triggered via environment variables.
@@ -76,8 +85,8 @@ Environment variables on the Instana agent are set using the **Advanced configur
 
 ![Setting the `USE_ATTACH_TOOLS` advanced configuration in the **Advanced configurations** menu](./assets/advanced-settings.png)
 
-After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the Pivotal Platform foundation. It is possible to roll out changes only to the relevant tiles in the Pivotal Platform foundation.
+After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the Pivotal Platform foundation.
+It is possible to roll out changes only to the relevant tiles in the Pivotal Platform foundation.
 For example, the `USE_ATTACH_TOOLS` advanced configuration is relevant only for Diego cells, so the **Apply Changes** process could be run to affect only the BOSH Director, Instana Microservices Application Monitoring for Pivotal Platform and Pivotal Application Service tiles.
 
 In general, the **Advanced configurations > Environment settings** should be used only when instructed by Instana's support or explicitly mentioned in this documentation.
-
