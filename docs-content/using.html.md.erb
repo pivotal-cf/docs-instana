@@ -58,6 +58,19 @@ The applications deployed on a Pivotal Platform foundation monitored with the In
 
 ![A Node.js Cloud Foundry application monitored with the Instana Microservices Application Monitoring for Pivotal Platform tile](./assets/cf-node-app.png)
 
+##<a id='pipeline-feedback'></a>Pipeline Feedback for BOSH deployments
+
+<p class='note'><strong>Important:</strong> The Pipeline Feedback functionality is currently in _experimental_ status.
+In foundations with many service instances, each of which usually has a a dedicated BOSH deployment, it may become a bit too chatty.
+Let us know what you think of it!</p>
+
+The Instana tile automatically detects BOSH deployments running across the Pivotal Platform foundation and reports them in Instana as a `releases` of the Pipeline Feedback functionality.
+For more information on the Pipeline Feedback functionality, please consult the [Pipeline Feedback](https://docs.instana.io/core_concepts/pipeline_feedback) documentation page.
+
+The "Pipeline Feedback for BOSH deployments" feature is opt-in.
+To turn it on, head over to the Instana tile configurations in OpsManager and activate the **Agent automatic configurations > [Experimental] Pipeline Feedback for BOSH** option.
+The rollout of the change requires to run **Apply Changes** in OpsManager to the Pivotal Application Services tile.
+
 ## More on How to Use Instana to Monitor Microservices
 
 For more information about how to use Instana's advanced tracing and monitoring capabilities, see the [Instana documentation](https://docs.instana.io).
