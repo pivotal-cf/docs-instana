@@ -147,3 +147,33 @@ applications:
   env:
     AUTOWRAPT_BOOTSTRAP: instana
 ```
+
+##<a id='pks'></a> Pivotal Container Service Support (PKS)
+
+Pivotal Container Service (PKS) is an enterprise Kubernetes platform, architected for rapid results, scaling, and reliability on any infrastructure.
+For more information about PKS, visit the [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service) page.
+
+### Installation
+
+The Instana Microservices Application Monitoring for Pivotal Platform tile includes in technical preview the support for PKS.
+After its rollout in a foundation with PKS installed, Instana's Kubernetes monitoring will be automatically deployed on all Kubernetes clusters created by the PKS Service Broker.
+
+Kubernetes clusters that already existed before the rollout of the Instana tile will need to be upgraded to receive the Instana agents; for more information on how to upgrade Kubernetes clusters via PKS, see the [Upgrading Clusters](https://docs.pivotal.io/pks/1-5/upgrade-clusters.html) page.
+
+### Kubernetes Clusters in Instana
+
+Like all other supported Kubernetes versiona and distributions, Kubernetes clusters created via PKS are visible in the Kubernetes views of Instana.
+
+![A Kubernetes cluster created with PKS in Instana](./assets/pks-cluster.png)
+
+All features available for other Kubernetes distributions are also available for PKS.
+
+For more information on how Kubernetes is monitored by Instana, see the [Kubernetes](https://docs.instana.io/ecosystem/kubernetes/) page of the Instana documentation.
+
+### Caveats
+
+The following issues will have do be addressed before we declare General Availability for PKS support:
+
+* Upon the removal of the Instana tile, the Instana agent is not automatically removed from the Kubernetes clusters.
+  Agents can be removed from the Kubernetes cluster manually via `kubectl`, deleting the `instana-agent` namespace and the `instana-agent` daemonset.
+* Instana agents on Kubernetes worker nodes cannot report to multiple backends, unlike those installed on Kubernetes master nodes or Cloud Foundry.
