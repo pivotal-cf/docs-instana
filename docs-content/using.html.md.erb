@@ -34,7 +34,10 @@ Out of the box, Instana Microservices Application Monitoring for Pivotal Platfor
 
 For more information about how to use the Instana dashboard, see the [Instana documentation](https://docs.instana.com).
 
-## <a id='using-application-perspectives'></a> Cloud Foundry Dashboards (Beta)
+## <a id='using-application-perspectives'></a> Cloud Foundry Dashboards (Technical Preview)
+
+<p class='note'><strong>Important:</strong> The Cloud Foundry Dashboards in Instana are currently in <i>technical preview</i> status.
+They are used in production at very large customers and provide great value, but we would still like to devote some more effort to them before we declare their <i>general availability</i>.</p>
 
 _Note_: This section describes a preview which is currently in Beta. Please reach out to [support](https://support.instana.com) to request access.
 
@@ -60,7 +63,7 @@ The applications deployed on a Pivotal Platform foundation monitored with the In
 
 ##<a id='pipeline-feedback'></a>Pipeline Feedback for BOSH deployments
 
-<p class='note'><strong>Important:</strong> The Pipeline Feedback functionality is currently in _experimental_ status.
+<p class='note'><strong>Important:</strong> The Pipeline Feedback functionality is currently in <i>experimental</i> status.
 In foundations with many service instances, each of which usually has a a dedicated BOSH deployment, it may become a bit too chatty.
 Let us know what you think of it!</p>
 
@@ -148,7 +151,11 @@ applications:
     AUTOWRAPT_BOOTSTRAP: instana
 ```
 
-##<a id='pks'></a> Pivotal Container Service Support (PKS)
+##<a id='pks'></a> Pivotal Container Service Support (Technical Preview)
+
+<p class='note'><strong>Important:</strong> The Pivotal Container Service support is currently in <i>technical preview</i> status.
+We are beyond proud of the monitoring of Kubernetes in Instana, which is rock solid and in production at a multitude of customers.
+Insofar the automation of the Kubernetes monitoring in the tile, consult the <a href="#pks-caveats">Caveats</a> section for the list of limitations we want to lift before declaring <i>general availability</i>.</p>
 
 Pivotal Container Service (PKS) is an enterprise Kubernetes platform, architected for rapid results, scaling, and reliability on any infrastructure.
 For more information about PKS, visit the [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service) page.
@@ -156,9 +163,16 @@ For more information about PKS, visit the [Pivotal Container Service](https://pi
 ### Installation
 
 The Instana Microservices Application Monitoring for Pivotal Platform tile includes in technical preview the support for PKS.
+See the [Installing and Configuring Instana Microservices Application Monitoring for Pivotal Platform](./installing.html) for guidance on how to install the Instana Microservices Application Monitoring for Pivotal Platform tile.
+
 After its rollout in a foundation with PKS installed, Instana's Kubernetes monitoring will be automatically deployed on all Kubernetes clusters created by the PKS Service Broker.
 
 Kubernetes clusters that already existed before the rollout of the Instana tile will need to be upgraded to receive the Instana agents; for more information on how to upgrade Kubernetes clusters via PKS, see the [Upgrading Clusters](https://docs.pivotal.io/pks/1-5/upgrade-clusters.html) page.
+
+### Configuration
+
+Agent configurations specify to the tile will apply for agents running on BOSH as well as on Kubernetes; see the [Installing and Configuring Instana Microservices Application Monitoring for Pivotal Platform](./installing.html) page for an overview of which configurations can be set at the agent level.
+The only caveat is the reporting to multiple Instana backends, which is currently not supported on Kubernetes, see the [Caveats](#pks-caveats) section.
 
 ### Kubernetes Clusters in Instana
 
@@ -170,7 +184,7 @@ All features available for other Kubernetes distributions are also available for
 
 For more information on how Kubernetes is monitored by Instana, see the [Kubernetes](https://docs.instana.io/ecosystem/kubernetes/) page of the Instana documentation.
 
-### Caveats
+###<a id='pks-caveats'></a> Caveats
 
 The following issues will have do be addressed before we declare General Availability for PKS support:
 
