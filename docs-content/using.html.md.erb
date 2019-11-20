@@ -117,7 +117,7 @@ applications:
     CORECLR_ENABLE_PROFILING: 1
     CORECLR_PROFILER: "{cf0d821e-299b-5307-a3d8-b283c03916dd}"
     CORECLR_PROFILER_PATH: "/home/vcap/app/instana_tracing/CoreProfiler.so"
-    LD_LIBRARY_PATH: "/home/vcp/app/instana_tracing"
+    LD_LIBRARY_PATH: "/home/vcap/app/instana_tracing"
 ```
 
 Notice that the value of the `path` variable may change depending on the .NET Core SDK being used and the name of the configuration passed to the `dotnet publish --self-contained=false -c Release` via the `-c` flag, which in this example is `Release`.
