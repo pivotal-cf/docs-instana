@@ -189,6 +189,7 @@ For more information on how Kubernetes is monitored by Instana, see the [Kuberne
 
 The following issues will have do be addressed before we declare General Availability for PKS support:
 
+* The PKS plan must allow for priviledged containers; see the [Enabling and Configuring Pod Security Policies](https://docs.pivotal.io/pks/1-5/pod-security-policy.html) for more information on how to allow priviledged pods on PKS.
 * Upon the removal of the Instana tile, the Instana agent is not automatically removed from the Kubernetes clusters.
   Agents can be removed from the Kubernetes cluster manually via `kubectl`, deleting the `instana-agent` namespace and the `instana-agent` daemonset.
 * Instana agents on Kubernetes worker nodes cannot report to multiple backends, unlike those installed on Kubernetes master nodes or Cloud Foundry.
