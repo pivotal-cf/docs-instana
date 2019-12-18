@@ -14,6 +14,24 @@ When you release a new version, add new release notes to this file, keeping the 
 
 These are release notes for Instana Microservices Application Monitoring for Pivotal Platform.
 
+##<a id="v1.168.0"></a> v1.168.0
+
+**Release Date:** December 19, 2019
+
+Last update for this year, but tons of new stuff!
+
+New features:
+
+* Pod Security Policies support for PKS.
+* Out-of-the-box process monitoring in terms of CPU, memory and open files for GoRouter, Cloud Controller, Kube-related processes on the master nodes of PKS, BOSH agent and BOSH DNS-related processes.
+* Automatic management of maintenance windows based on BOSH tasks; for more information, see the [Automatic Maintenance Windows for BOSH deployments](./using.html#maintenance-windows) section.
+* All tile settings are compatible with the `om` utility.
+* [Experimental] Automatically monitor all RabbitMQ queues of service instances spawned via the RabbitMQ for Pivotal Platform tile.
+
+Bug fix:
+
+* Air-gap the PKS support by embedding the `leader-elector` image in the tile.
+
 ##<a id="v1.166.2"></a> v1.166.2
 
 **Release Date:** December 2, 2019
