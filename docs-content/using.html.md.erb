@@ -62,7 +62,21 @@ The applications deployed on a Pivotal Platform foundation monitored with the In
 
 ![A Node.js Cloud Foundry application monitored with the Instana Microservices Application Monitoring for Pivotal Platform tile](./assets/cf-node-app.png)
 
-##<a id='pipeline-feedback'></a>Pipeline Feedback for BOSH deployments
+##<a id='maintenance-windows'></a> Automatic Maintenance Windows for BOSH deployments
+
+The Instana tile automatically detects BOSH deployments running across the Pivotal Platform foundation and automatically create, schedule and unschedule maintenance windows.
+For more information on the "Maintenance Windows" feature of Instana, please consult the [Maintenance Windows](https://docs.instana.io/quick_start/alerting/#maintenance-windows) documentation page.
+
+The "Automatic Maintenance Windows" feature of the tile requires the following configurations:
+
+* **Backend connection > API endpoint URL**, to point to your tenant unit in Instana.
+* **Backend connection > API token** requires an API token with (at least) the `Configuration of custom alerts` permission; for more information on API tokens, consult the [Tokens](https://docs.instana.io/quick_start/api/#tokens) documentation page.
+
+The Automatic Maintenance Windows functionality can be deactivated with the **Agent automatic configurations > Automatic maintenance windows for BOSH** option in the tile configuration.
+
+The rollout of the change requires to run **Apply Changes** in OpsManager to the Pivotal Application Service (PAS) or Pivotal Container Service (PKS) tile.
+
+##<a id='pipeline-feedback'></a> Pipeline Feedback for BOSH deployments
 
 <p class='note'><strong>Important:</strong> The Pipeline Feedback functionality is currently in <i>experimental</i> status.
 In foundations with many service instances, each of which usually has a a dedicated BOSH deployment, it may become a bit too chatty.
@@ -73,11 +87,30 @@ For more information on the Pipeline Feedback functionality, please consult the 
 
 The "Pipeline Feedback for BOSH deployments" feature is opt-in.
 To turn it on, head over to the Instana tile configurations in OpsManager and activate the **Agent automatic configurations > [Experimental] Pipeline Feedback for BOSH** option.
-The rollout of the change requires to run **Apply Changes** in OpsManager to the Pivotal Application Services tile.
+Also, make sure to configure correctly the following settings:
+
+* **Backend connection > API endpoint URL**, to point to your tenant unit in Instana.
+* **Backend connection > API token** requires an API token with (at least) the `Configuration of releases` permission; for more information on API tokens, consult the [Tokens](https://docs.instana.io/quick_start/api/#tokens) documentation page.
+
+The rollout of the change requires to run **Apply Changes** in OpsManager to the Pivotal Application Service (PAS) or Pivotal Container Service (PKS) tile.
 
 ## More on How to Use Instana to Monitor Microservices
 
 For more information about how to use Instana's advanced tracing and monitoring capabilities, see the [Instana documentation](https://docs.instana.io).
+
+##<a id='monitoring-processes'></a> Monitoring BOSH Agent, Gorouter and other processes
+
+Instana automatically monitors out-of-the-box CPU, memory and file descriptor consumption of notable processes in the Cloud Foundry and Kubernetes control plane. Specifically:
+
+* BOSH agent
+* BOSH DNS
+* Gorouter
+* Cloud Controller
+* kube-apiserver
+* kube-controller-manager
+* kube-scheduler
+
+![A Gorouter process monitored out-of-the-box by Instana](./assets/gorouter-process-monitoring.png)
 
 ##<a id='deploying-cf-applications'></a> Deployment of Cloud Foundry Applications
 
@@ -182,6 +215,7 @@ Like all other supported Kubernetes versiona and distributions, Kubernetes clust
 ![A Kubernetes cluster created with PKS in Instana](./assets/pks-k8s-cluster.png)
 
 All features available for other Kubernetes distributions are also available for PKS.
+The Instana tile automatically configures the deployment of the agents to the Pod Security Policies settings configured in the PKS tile.
 
 For more information on how Kubernetes is monitored by Instana, see the [Kubernetes](https://docs.instana.io/ecosystem/kubernetes/) page of the Instana documentation.
 
