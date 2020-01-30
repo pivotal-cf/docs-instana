@@ -14,6 +14,28 @@ When you release a new version, add new release notes to this file, keeping the 
 
 These are release notes for Instana Microservices Application Monitoring for Pivotal Platform.
 
+##<a id="v1.171.0"></a> v1.171.0
+
+**Release Date:** January 31, 2020
+
+First release of 2020, and the year starts *strong*!
+
+New features:
+
+* PAS: v2.8 support
+* PKS: Support for the agents to report to multiple backends
+* PKS: General Availability!
+* Automatic monitoring of MongoDB service instances spawned from the MongoDB Enterprise Service for Pivotal Platform
+
+Improvements:
+
+* The Instana tile no longer declares itself as a `service_broker` tile, so no network and availability zone allocation is required.
+While it has been working transparently via the OpsManager web interface, the required allocation to networks caused issues with `om configure-product` command; these issues are now resolved.
+
+Bug fix:
+
+* Resolved an issue that might prevent the Instana agent Docker images from updating on PKS over the Tile update.
+
 ##<a id="v1.168.0"></a> v1.168.0
 
 **Release Date:** December 19, 2019
