@@ -94,10 +94,6 @@ Also, make sure to configure correctly the following settings:
 
 The rollout of the change requires to run **Apply Changes** in OpsManager to the Pivotal Application Service (PAS) or Pivotal Container Service (PKS) tile.
 
-## More on How to Use Instana to Monitor Microservices
-
-For more information about how to use Instana's advanced tracing and monitoring capabilities, see the [Instana documentation](https://docs.instana.io).
-
 ##<a id='monitoring-processes'></a> Monitoring BOSH Agent, Gorouter and other processes
 
 Instana automatically monitors out-of-the-box CPU, memory and file descriptor consumption of notable processes in the Cloud Foundry and Kubernetes control plane. Specifically:
@@ -111,6 +107,10 @@ Instana automatically monitors out-of-the-box CPU, memory and file descriptor co
 * kube-scheduler
 
 ![A Gorouter process monitored out-of-the-box by Instana](./assets/gorouter-process-monitoring.png)
+
+## More on How to Use Instana to Monitor Microservices
+
+For more information about how to use Instana's advanced tracing and monitoring capabilities, see the [Instana documentation](https://docs.instana.io).
 
 ##<a id='deploying-cf-applications'></a> Deployment of Cloud Foundry Applications
 
@@ -185,11 +185,7 @@ applications:
     AUTOWRAPT_BOOTSTRAP: instana
 ```
 
-##<a id='pks'></a> Pivotal Container Service Support (Technical Preview)
-
-<p class='note'><strong>Important:</strong> The Pivotal Container Service support is currently in <i>technical preview</i> status.
-We are beyond proud of the monitoring of Kubernetes in Instana, which is rock solid and in production at a multitude of customers.
-Insofar the automation of the Kubernetes monitoring in the tile, consult the <a href="#pks-caveats">Caveats</a> section for the list of limitations we want to lift before declaring <i>general availability</i>.</p>
+##<a id='pks'></a> Pivotal Container Service Support
 
 Pivotal Container Service (PKS) is an enterprise Kubernetes platform, architected for rapid results, scaling, and reliability on any infrastructure.
 For more information about PKS, visit the [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service) page.
@@ -218,10 +214,3 @@ All features available for other Kubernetes distributions are also available for
 The Instana tile automatically configures the deployment of the agents to the Pod Security Policies settings configured in the PKS tile.
 
 For more information on how Kubernetes is monitored by Instana, see the [Kubernetes](https://docs.instana.io/ecosystem/kubernetes/) page of the Instana documentation.
-
-###<a id='pks-caveats'></a> Caveats
-
-The following issues will have do be addressed before we declare General Availability for PKS support:
-
-* The PKS plan must allow for priviledged containers; see the [Enabling and Configuring Pod Security Policies](https://docs.pivotal.io/pks/1-5/pod-security-policy.html) for more information on how to allow priviledged pods on PKS.
-* Instana agents on Kubernetes worker nodes cannot report to multiple backends, unlike those installed on Kubernetes master nodes or Cloud Foundry.
