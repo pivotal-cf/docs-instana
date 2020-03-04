@@ -1,5 +1,5 @@
 ---
-title: Release Notes for Instana Microservices Application Monitoring for Pivotal Platform
+title: Release Notes for Instana Microservices Application Monitoring for VMware Tanzu
 owner: Partners
 ---
 
@@ -12,7 +12,7 @@ owner: Partners
 When you release a new version, add new release notes to this file, keeping the older notes below.**
 -->
 
-These are release notes for Instana Microservices Application Monitoring for Pivotal Platform.
+These are release notes for Instana Microservices Application Monitoring for VMware Tanzu.
 
 ##<a id="v1.172.1"></a> v1.172.1
 
@@ -43,10 +43,10 @@ First release of 2020, and the year starts *strong*!
 
 New features:
 
-* PAS: v2.8 support
+* TAS for VMs: v2.8 support
 * PKS: Support for the agents to report to multiple backends
 * PKS: General Availability!
-* Automatic monitoring of MongoDB service instances spawned from the MongoDB Enterprise Service for Pivotal Platform
+* Automatic monitoring of MongoDB service instances spawned from the MongoDB Enterprise Service for VMware Tanzu
 
 Improvements:
 
@@ -69,7 +69,7 @@ New features:
 * Out-of-the-box process monitoring in terms of CPU, memory and open files for GoRouter, Cloud Controller, Kube-related processes on the master nodes of PKS, BOSH agent and BOSH DNS-related processes.
 * Automatic management of maintenance windows based on BOSH tasks; for more information, see the [Automatic Maintenance Windows for BOSH deployments](./using.html#maintenance-windows) section.
 * All tile settings are compatible with the `om` utility.
-* [Experimental] Automatically monitor all RabbitMQ queues of service instances spawned via the RabbitMQ for Pivotal Platform tile.
+* [Experimental] Automatically monitor all RabbitMQ queues of service instances spawned via the RabbitMQ for VMware Tanzu tile.
 
 Bug fix:
 
@@ -114,8 +114,8 @@ A version packed with improvements!
 
 * Cloud Foundry as first-class citizen in Instana: find all your Cloud Foundry applications quickly and easily in Instana via the new _Cloud Foundry_ main page.
 * Integration of Cloud Foundry in Instana's Dynamic Focus and Infrastructure Map.
-* Automatically monitor Redis service instances created via the [Redis for Pivotal Platform](https://network.pivotal.io/products/p-redis) tile.
-* Automatically monitor MySQL service instances created via the [MySQL for Pivotal Platform](https://network.pivotal.io/products/pivotal-mysql/) tile.
+* Automatically monitor Redis service instances created via the [Redis for VMware Tanzu](https://network.pivotal.io/products/p-redis) tile.
+* Automatically monitor MySQL service instances created via the [MySQL for VMware Tanzu](https://network.pivotal.io/products/pivotal-mysql/) tile.
 * Automatically monitor the PXC MySQL database backing Cloud Foundry's Cloud Controller.
 * Configure the `USE_ATTACH_TOOLS=true` advanced configuration by default to ensure that all Java applications and automatically discovered and traced, irrespective of the JVM version they run on.
 
@@ -125,7 +125,7 @@ A version packed with improvements!
 
 Fixed issues in this release:
 
-* Solved an issue on Pivotal Platform 2.3.14 that occasionally prevented the Instana agent BOSH job from being updated.
+* Solved an issue on VMware Tanzu 2.3.14 that occasionally prevented the Instana agent BOSH job from being updated.
 
 ##<a id="v1.160.2"></a> v1.160.2
 
@@ -133,8 +133,8 @@ Fixed issues in this release:
 
 Fixed issues in this release:
 
-* Solved an issue on Pivotal Platform 2.3.14 that prevented the leadership-election job from successfully bootstrap.
-* Solved an issue with Pivotal Platform 2.6.4 where some Garden container identifiers may not be collected consistently.
+* Solved an issue on VMware Tanzu 2.3.14 that prevented the leadership-election job from successfully bootstrap.
+* Solved an issue with VMware Tanzu 2.6.4 where some Garden container identifiers may not be collected consistently.
 
 ##<a id="v1.160.1"></a> v1.160.1
 
@@ -146,8 +146,8 @@ Features included in this release:
 
 Fixed issues in this release:
 
-* Fixed an issue with PAS 2.3.4, where the deployment would fail due to BOSH not deploying correctly the `leadership-election` job.
-* Fixed an issue with PAS 2.6.4, where the deployment would fail due to BOSH having too many link providers for the `leadership-election` link.
+* Fixed an issue with TAS for VMs 2.3.4, where the deployment would fail due to BOSH not deploying correctly the `leadership-election` job.
+* Fixed an issue with TAS for VMs 2.6.4, where the deployment would fail due to BOSH having too many link providers for the `leadership-election` link.
 
 ##<a id="v1.160.0"></a> v1.160.0
 
@@ -175,7 +175,7 @@ Features included in this release:
 
 Features included in this release:
 
-* Instana agent improvements for Pivotal Platform 2.6
+* Instana agent improvements for VMware Tanzu 2.6
 
 ##<a id="v1.157.0"></a> v1.157.0
 

@@ -1,13 +1,13 @@
 ---
-title: Using Instana Microservices Application Monitoring for Pivotal Platform
+title: Using Instana Microservices Application Monitoring for VMware Tanzu
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to use **Instana Microservices Application Monitoring for Pivotal Platform**.
+This topic describes how to use **Instana Microservices Application Monitoring for VMware Tanzu**.
 
-##<a id='using-infrastructure-map'></a> The Pivotal Platform Foundation in the Instana Infrastructure Map
+##<a id='using-infrastructure-map'></a> The VMware Tanzu Foundation in the Instana Infrastructure Map
 
 <!--
 **This topic should include any instructions for how to use the service or dashboard created by the tile.
@@ -17,20 +17,20 @@ If you include a Troubleshooting section, follow the Symptom/Explanation format 
 [Okta Troubleshooting](http://docs.pivotal.io/p-identity/okta/troubleshooting.html) topic**.
 -->
 
-Instana Microservices Application Monitoring for Pivotal Platform is entirely automated.
-After installation, the Instana agent is rolled out to all the supported Virtual Machines across the Pivotal Platform foundation.
+Instana Microservices Application Monitoring for VMware Tanzu is entirely automated.
+After installation, the Instana agent is rolled out to all the supported Virtual Machines across the VMware Tanzu foundation.
 
-![An entire Pivotal Platform foundation in Instana, Cloud Foundry applications are automatically discovered and monitored](./assets/pcf-foundation.png)
+![An entire VMware Tanzu foundation in Instana, Cloud Foundry applications are automatically discovered and monitored](./assets/pcf-foundation.png)
 
 The Infrastructure Map of Instana provides the end user with powerful tools to make sense or the largest deployments:
 
 - Dynamic Focus is a robust, full blown editor capable of searching through multiple data contexts simultaneously; see the [Dynamic Focus](https://docs.instana.io/core_concepts/dynamic_focus) Instana documentation for more information about how to use Dynamic Focus
 - Grouping and perspectives are a way to organize large infrastructures in manageable groups; for more information, see the [Infrastructure Monitoring](https://docs.instana.io/products/infrastructure_monitoring/) Instana documentation for more information about how to use grouping and perspectives in the Infrastructure Map
 
-Out of the box, Instana Microservices Application Monitoring for Pivotal Platform provides the following BOSH-related tags to aid with grouping:
+Out of the box, Instana Microservices Application Monitoring for VMware Tanzu provides the following BOSH-related tags to aid with grouping:
 
-- `agent_bosh_release_version` provides a short-hand to search for the version of the BOSH release deployed on the host; BOSH releases are upgraded in lock-step with Instana Microservices Application Monitoring for Pivotal Platform versions to simplify the overview of the update state of your Instana Microservices Application Monitoring for Pivotal Platform
-- `bosh_deployment`, `bosh_availability_zone`, `bosh_instance_name`, and `bosh_instance_id` are immediately-recognizable data for Pivotal Platform operators familiar with [BOSH](https://bosh.io/docs/), the provisioning layer of Pivotal Platform
+- `agent_bosh_release_version` provides a short-hand to search for the version of the BOSH release deployed on the host; BOSH releases are upgraded in lock-step with Instana Microservices Application Monitoring for VMware Tanzu versions to simplify the overview of the update state of your Instana Microservices Application Monitoring for VMware Tanzu
+- `bosh_deployment`, `bosh_availability_zone`, `bosh_instance_name`, and `bosh_instance_id` are immediately-recognizable data for VMware Tanzu operators familiar with [BOSH](https://bosh.io/docs/), the provisioning layer of VMware Tanzu
 
 For more information about how to use the Instana dashboard, see the [Instana documentation](https://docs.instana.com).
 
@@ -58,13 +58,13 @@ It also provides access to all calls to this application via the ["Analyze Calls
 
 ##<a id='using-application-perspectives'></a> Cloud Foundry Applications in Instana's Application Perspectives
 
-The applications deployed on a Pivotal Platform foundation monitored with the Instana Microservices Application Monitoring for Pivotal Platform tile are automatically monitored and their performance is readily available on Instana's dashboards.
+The applications deployed on a VMware Tanzu foundation monitored with the Instana Microservices Application Monitoring for VMware Tanzu tile are automatically monitored and their performance is readily available on Instana's dashboards.
 
-![A Node.js Cloud Foundry application monitored with the Instana Microservices Application Monitoring for Pivotal Platform tile](./assets/cf-node-app.png)
+![A Node.js Cloud Foundry application monitored with the Instana Microservices Application Monitoring for VMware Tanzu tile](./assets/cf-node-app.png)
 
 ##<a id='maintenance-windows'></a> Automatic Maintenance Windows for BOSH deployments
 
-The Instana tile automatically detects BOSH deployments running across the Pivotal Platform foundation and automatically create, schedule and unschedule maintenance windows.
+The Instana tile automatically detects BOSH deployments running across the VMware Tanzu foundation and automatically create, schedule and unschedule maintenance windows.
 For more information on the "Maintenance Windows" feature of Instana, please consult the [Maintenance Windows](https://docs.instana.io/quick_start/alerting/#maintenance-windows) documentation page.
 
 The "Automatic Maintenance Windows" feature of the tile requires the following configurations:
@@ -74,7 +74,7 @@ The "Automatic Maintenance Windows" feature of the tile requires the following c
 
 The Automatic Maintenance Windows functionality can be deactivated with the **Agent automatic configurations > Automatic maintenance windows for BOSH** option in the tile configuration.
 
-The rollout of the change requires to run **Apply Changes** in OpsManager to the Pivotal Application Service (PAS) or Pivotal Container Service (PKS) tile.
+The rollout of the change requires to run **Apply Changes** in OpsManager to the VMware Tanzu Application Service for VMs (TAS for VMs) or Pivotal Container Service (PKS) tile.
 
 ##<a id='pipeline-feedback'></a> Pipeline Feedback for BOSH deployments
 
@@ -82,7 +82,7 @@ The rollout of the change requires to run **Apply Changes** in OpsManager to the
 In foundations with many service instances, each of which usually has a a dedicated BOSH deployment, it may become a bit too chatty.
 Let us know what you think of it!</p>
 
-The Instana tile automatically detects BOSH deployments running across the Pivotal Platform foundation and reports them in Instana as a `releases` of the Pipeline Feedback functionality.
+The Instana tile automatically detects BOSH deployments running across the VMware Tanzu foundation and reports them in Instana as a `releases` of the Pipeline Feedback functionality.
 For more information on the Pipeline Feedback functionality, please consult the [Pipeline Feedback](https://docs.instana.io/core_concepts/pipeline_feedback) documentation page.
 
 The "Pipeline Feedback for BOSH deployments" feature is opt-in.
@@ -92,7 +92,7 @@ Also, make sure to configure correctly the following settings:
 * **Backend connection > API endpoint URL**, to point to your tenant unit in Instana.
 * **Backend connection > API token** requires an API token with (at least) the `Configuration of releases` permission; for more information on API tokens, consult the [Tokens](https://docs.instana.io/quick_start/api/#tokens) documentation page.
 
-The rollout of the change requires to run **Apply Changes** in OpsManager to the Pivotal Application Service (PAS) or Pivotal Container Service (PKS) tile.
+The rollout of the change requires to run **Apply Changes** in OpsManager to the VMware Tanzu Application Service for VMs (TAS for VMs) or Pivotal Container Service (PKS) tile.
 
 ##<a id='monitoring-processes'></a> Monitoring BOSH Agent, Gorouter and other processes
 
@@ -114,7 +114,7 @@ For more information about how to use Instana's advanced tracing and monitoring 
 
 ##<a id='deploying-cf-applications'></a> Deployment of Cloud Foundry Applications
 
-The goal of Instana Microservices Application Monitoring for Pivotal Platform is to entirely automate the monitoring of Cloud Foundry applications and their services; while we work on achieving the goal, in some cases some minor configuration steps may be required, depending on which type of Cloud Foundry application is pushed.
+The goal of Instana Microservices Application Monitoring for VMware Tanzu is to entirely automate the monitoring of Cloud Foundry applications and their services; while we work on achieving the goal, in some cases some minor configuration steps may be required, depending on which type of Cloud Foundry application is pushed.
 
 ###<a id='deploying-cf-applications-java'></a> Deploying Java applications
 
@@ -122,7 +122,7 @@ Monitoring of Java applications is entirely automated by the Instana agent, whic
 
 ###<a id='deploying-cf-applications-dotnetcore'></a> Deploying DotNet Core Apps with the DotNet Core Buildpack
 
-The Instana Microservices Application Monitoring for Pivotal Platform supports the monitoring of _non self-contained_ DotNet Core applications by following the following steps:
+The Instana Microservices Application Monitoring for VMware Tanzu supports the monitoring of _non self-contained_ DotNet Core applications by following the following steps:
 
 - Add the Instana Nuget package to the Cloud Foundry application by performing the following command:
 
@@ -136,7 +136,7 @@ dotnet add myproject.csproj package Instana.Profiler.Linux.Bundled.Refs
 dotnet publish --self-contained=false -c Release
 ```
 
-Notice that Instana Microservices Application Monitoring for Pivotal Platform does not support Self-Contained Deployments (SCD) of .NET Core applications, which are also discouraged by the .NET Core Buildpack.
+Notice that Instana Microservices Application Monitoring for VMware Tanzu does not support Self-Contained Deployments (SCD) of .NET Core applications, which are also discouraged by the .NET Core Buildpack.
 For more information on the support of the `dotnet-core-buildpack` for SCD, see the [Self-Contained Deployments](https://docs.cloudfoundry.org/buildpacks/dotnet-core/index.html#self-contained) section of the .NET Core Buildpack documentation.
 
 - Add the following environment variables to the application manifest:
@@ -192,8 +192,8 @@ For more information about PKS, visit the [Pivotal Container Service](https://pi
 
 ### Installation
 
-The Instana Microservices Application Monitoring for Pivotal Platform tile includes in technical preview the support for PKS.
-See the [Installing and Configuring Instana Microservices Application Monitoring for Pivotal Platform](./installing.html) for guidance on how to install the Instana Microservices Application Monitoring for Pivotal Platform tile.
+The Instana Microservices Application Monitoring for VMware Tanzu tile includes in technical preview the support for PKS.
+See the [Installing and Configuring Instana Microservices Application Monitoring for VMware Tanzu](./installing.html) for guidance on how to install the Instana Microservices Application Monitoring for VMware Tanzu tile.
 
 After its rollout in a foundation with PKS installed, Instana's Kubernetes monitoring will be automatically deployed on all Kubernetes clusters created by the PKS Service Broker.
 
@@ -201,7 +201,7 @@ Kubernetes clusters that already existed before the rollout of the Instana tile 
 
 ### Configuration
 
-Agent configurations specify to the tile will apply for agents running on BOSH as well as on Kubernetes; see the [Installing and Configuring Instana Microservices Application Monitoring for Pivotal Platform](./installing.html) page for an overview of which configurations can be set at the agent level.
+Agent configurations specify to the tile will apply for agents running on BOSH as well as on Kubernetes; see the [Installing and Configuring Instana Microservices Application Monitoring for VMware Tanzu](./installing.html) page for an overview of which configurations can be set at the agent level.
 The only caveat is the reporting to multiple Instana backends, which is currently not supported on Kubernetes, see the [Caveats](#pks-caveats) section.
 
 ### Kubernetes Clusters in Instana
