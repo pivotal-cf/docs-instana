@@ -133,11 +133,8 @@ dotnet add myproject.csproj package Instana.Profiler.Linux.Bundled.Refs
 - Prepare the DotNet Core application to be published:
 
 ```sh
-dotnet publish --self-contained=false -c Release
+dotnet publish -c Release
 ```
-
-Notice that Instana Microservices Application Monitoring for VMware Tanzu does not support Self-Contained Deployments (SCD) of .NET Core applications, which are also discouraged by the .NET Core Buildpack.
-For more information on the support of the `dotnet-core-buildpack` for SCD, see the [Self-Contained Deployments](https://docs.cloudfoundry.org/buildpacks/dotnet-core/index.html#self-contained) section of the .NET Core Buildpack documentation.
 
 - Add the following environment variables to the application manifest:
 
@@ -145,15 +142,16 @@ For more information on the support of the `dotnet-core-buildpack` for SCD, see 
 ---
 applications:
 - name: <application_name>
-  path: bin/Release/netcoreapp2.1/publish/
+  path: bin/Release/netcoreapp3.1/publish/
   env:
     CORECLR_ENABLE_PROFILING: 1
     CORECLR_PROFILER: "{cf0d821e-299b-5307-a3d8-b283c03916dd}"
     CORECLR_PROFILER_PATH: "/home/vcap/app/instana_tracing/CoreProfiler.so"
     LD_LIBRARY_PATH: "/home/vcap/app/instana_tracing"
+    DOTNET_STARTUP_HOOKS: "/home/vcap/app/Instana.Tracing.Core.dll"
 ```
 
-Notice that the value of the `path` variable may change depending on the .NET Core SDK being used and the name of the configuration passed to the `dotnet publish --self-contained=false -c Release` via the `-c` flag, which in this example is `Release`.
+Notice that the value of the `path` variable may change depending on the .NET Core SDK being used and the name of the configuration passed to the `dotnet publish -c Release` via the `-c` flag, which in this example is `Release`.
 
 - Push the Cloud Foundry application using the `cf push` command:
 
