@@ -14,6 +14,14 @@ When you release a new version, add new release notes to this file, keeping the 
 
 These are release notes for Instana Microservices Application Monitoring for VMware Tanzu.
 
+##<a id="v1.173.1"></a> v1.173.1
+
+**Release Date:** March 30, 2020
+
+Bug fix:
+
+* Prevent race condition that would cause Garden containers to be recognized as ContainerD containers instead, thus preventing the processes inside those containers from being traced. (Instana has generally support for ContainerD as well, but it is not applicable to Garden containers.)
+
 ##<a id="v1.173.0"></a> v1.173.0
 
 **Release Date:** March 24, 2020
@@ -21,6 +29,7 @@ These are release notes for Instana Microservices Application Monitoring for VMw
 New features:
 
 * Added support for self-contained .NET Core applications.
+* Address rebranding of Pivotal Platform to VMware Tanzu
 
 ##<a id="v1.172.1"></a> v1.172.1
 
