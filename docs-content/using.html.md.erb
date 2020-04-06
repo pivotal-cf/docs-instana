@@ -41,7 +41,7 @@ They are used in production at very large customers and provide great value, but
 
 _Note_: This section describes a preview which is currently in Beta. Please reach out to [support](https://support.instana.com) to request access.
 
-The Cloud Foundry application platform is an important and distinct part of your overall application stack. To encompass this importance Instana has dedicated support for CloudFroundry applications. This starts by its own dedicated top-level element in the Instana UI which makes it easily accessible and easy to understand for Cloud Foundry users. At the same time all information is deeply linked via the DynamicGraph into other product areas like Infrastructure, Application Perspectives, and Tracing. 
+The Cloud Foundry application platform is an important and distinct part of your overall application stack. To encompass this importance Instana has dedicated support for Cloud Foundry applications. This starts by its own dedicated top-level element in the Instana UI which makes it easily accessible and easy to understand for Cloud Foundry users. At the same time all information is deeply linked via the DynamicGraph into other product areas like Infrastructure, Application Perspectives, and Tracing. 
 
 ### <a id='listing-applications'></a> Listing Applications
 
@@ -166,6 +166,13 @@ See [Deploying with App Manifests](https://docs.cloudfoundry.org/devguide/deploy
 
 The only step necessary is adding the `@instana/collector` package; see the [Installation](https://docs.instana.io/ecosystem/node-js/#installation) section of the Instana Node.js documentation.
 
+###<a id='deploying-cf-applications-php'></a> Deploying PHP Apps with the PHP Buildpack
+
+<p class='note'><strong>Important:</strong> The support for tracing PHP applications on Cloud Foundry Feedback functionality is currently in <i>experimental</i> status.
+Currently, PHP tracing data are collected correctly and can be retrieved in Unbounded Analytics, but not correlated to the right Garden container.</p>
+
+Monitoring of PHP applications is entirely automated by the Instana agent.
+
 ###<a id='deploying-cf-applications-python'></a> Deploying Python Apps with the Python Buildpack
 
 Monitoring Python Cloud Foundry applications requires the following steps:
@@ -183,6 +190,10 @@ applications:
     AUTOWRAPT_BOOTSTRAP: instana
 ```
 
+###<a id='deploying-cf-applications-ruby'></a> Deploying Ruby Apps with the Ruby Buildpack
+
+The only step necessary is adding the `instana` gem; see the [Installation](https://docs.instana.io/ecosystem/ruby/#installation) section of the Instana Ruby documentation.
+
 ##<a id='pks'></a> Pivotal Container Service Support
 
 Pivotal Container Service (PKS) is an enterprise Kubernetes platform, architected for rapid results, scaling, and reliability on any infrastructure.
@@ -190,7 +201,7 @@ For more information about PKS, visit the [Pivotal Container Service](https://pi
 
 ### Installation
 
-The Instana Microservices Application Monitoring for VMware Tanzu tile includes in technical preview the support for PKS.
+The Instana Microservices Application Monitoring for VMware Tanzu tile includes full support for PKS.
 See the [Installing and Configuring Instana Microservices Application Monitoring for VMware Tanzu](./installing.html) for guidance on how to install the Instana Microservices Application Monitoring for VMware Tanzu tile.
 
 After its rollout in a foundation with PKS installed, Instana's Kubernetes monitoring will be automatically deployed on all Kubernetes clusters created by the PKS Service Broker.

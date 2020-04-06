@@ -14,6 +14,16 @@ When you release a new version, add new release notes to this file, keeping the 
 
 These are release notes for Instana Microservices Application Monitoring for VMware Tanzu.
 
+##<a id="v1.175.0"></a> v1.175.0
+
+**Release Date:** April 14, 2020
+
+New features:
+
+* Tracing Ruby applications in Cloud Foundry is now generally available.
+* Tracing PHP applications in Cloud Foundry is now generally experimental. The tracing itself works very well and is entirely automated; we need to perform a few changes to correlate the infrastructure correctly.
+* The origin of the Instana agents in the `Agents` view in Instana is now `tile`. The Instana agents installed on PKS worker nodes will be reported as `public docker` for consistency with other Kubernetes deployment means.
+
 ##<a id="v1.173.1"></a> v1.173.1
 
 **Release Date:** March 30, 2020
