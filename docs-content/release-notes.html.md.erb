@@ -20,12 +20,12 @@ These are release notes for Instana Microservices Application Monitoring for VMw
 
 New features:
 
-* VMware Kubernetes Grid clusters (formerly: Pivotal Container Service) are now recognized and marked as such in the Instana UI.
-* Introduced notion of `foundation`, which is applicable to both PKS and TAS and allows you to group and filter in Instana by the Tanzu foundation name.
+* Rebranding of PKS to VMware Tanzu Kubernetes Grid
+* VMware Tanzu Kubernetes Grid clusters (formerly: Pivotal Container Service) are now recognized and marked as such in the Instana UI.
+* Introduced notion of `foundation`, which is applicable to both VMware Tanzu Kubernetes Grid and TAS and allows you to group and filter in Instana by the Tanzu foundation name.
 * Tracing Ruby applications in Cloud Foundry is now generally available.
 * Tracing PHP applications in Cloud Foundry is now experimental: the tracing itself works great and is entirely automated; we need to correlate to the infrastructure (Cloud Foundry app and below) correctly.
-* The origin of the Instana agents in the `Agents` view in Instana is now `tile`. The Instana agents installed on PKS worker nodes will be reported as `public docker` for consistency with other Kubernetes deployment means.
-* Rebranding of PKS to VMware Kubernetes Grid
+* The origin of the Instana agents in the `Agents` view in Instana is now `tile`. The Instana agents installed on VMware Tanzu Kubernetes Grid worker nodes will be reported as `public docker` for consistency with other Kubernetes deployment means.
 * Greatly improved the efficiency deployment mechanism of Instana agent Docker images on Kubernetes Grid worker nodes.
 
 Bug fix:
