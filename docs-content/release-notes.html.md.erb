@@ -14,24 +14,6 @@ When you release a new version, add new release notes to this file, keeping the 
 
 These are release notes for Instana Microservices Application Monitoring for VMware Tanzu.
 
-##<a id="v1.176.0"></a> v1.176.0
-
-**Release Date:** April 27, 2020
-
-New features:
-
-* Rebranding of PKS to VMware Tanzu Kubernetes Grid
-* VMware Tanzu Kubernetes Grid clusters (formerly: Pivotal Container Service) are now recognized and marked as such in the Instana UI.
-* Introduced notion of `foundation`, which is applicable to both VMware Tanzu Kubernetes Grid and TAS and allows you to group and filter in Instana by the Tanzu foundation name.
-* Tracing Ruby applications in Cloud Foundry is now generally available.
-* Tracing PHP applications in Cloud Foundry is now experimental: the tracing itself works great and is entirely automated; we need to correlate to the infrastructure (Cloud Foundry app and below) correctly.
-* The origin of the Instana agents in the `Agents` view in Instana is now `tile`. The Instana agents installed on VMware Tanzu Kubernetes Grid worker nodes will be reported as `public docker` for consistency with other Kubernetes deployment means.
-* Greatly improved the efficiency deployment mechanism of Instana agent Docker images on Kubernetes Grid worker nodes.
-
-Bug fix:
-
-* Fix race condition between BOSH updates and agent updates in dynamic mode.
-
 ##<a id="v1.173.1"></a> v1.173.1
 
 **Release Date:** March 30, 2020
