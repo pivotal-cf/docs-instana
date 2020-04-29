@@ -74,7 +74,7 @@ The "Automatic Maintenance Windows" feature of the tile requires the following c
 
 The Automatic Maintenance Windows functionality can be deactivated with the **Agent automatic configurations > Automatic maintenance windows for BOSH** option in the tile configuration.
 
-The rollout of the change requires to run **Apply Changes** in OpsManager to the VMware Tanzu Application Service for VMs (TAS for VMs) or Pivotal Container Service (PKS) tile.
+The rollout of the change requires to run **Apply Changes** in OpsManager to the VMware Tanzu Application Service for VMs or VMware Tanzu Kubernetes Grid tile.
 
 ##<a id='pipeline-feedback'></a> Pipeline Feedback for BOSH deployments
 
@@ -92,7 +92,7 @@ Also, make sure to configure correctly the following settings:
 * **Backend connection > API endpoint URL**, to point to your tenant unit in Instana.
 * **Backend connection > API token** requires an API token with (at least) the `Configuration of releases` permission; for more information on API tokens, consult the [Tokens](https://docs.instana.io/quick_start/api/#tokens) documentation page.
 
-The rollout of the change requires to run **Apply Changes** in OpsManager to the VMware Tanzu Application Service for VMs (TAS for VMs) or Pivotal Container Service (PKS) tile.
+The rollout of the change requires to run **Apply Changes** in OpsManager to the VMware Tanzu Application Service for VMs or VMware Tanzu Kubernetes Grid tile.
 
 ##<a id='monitoring-processes'></a> Monitoring BOSH Agent, Gorouter and other processes
 
@@ -183,32 +183,35 @@ applications:
     AUTOWRAPT_BOOTSTRAP: instana
 ```
 
-##<a id='pks'></a> Pivotal Container Service Support
+###<a id='deploying-cf-applications-ruby'></a> Deploying Ruby Apps with the Ruby Buildpack
 
-Pivotal Container Service (PKS) is an enterprise Kubernetes platform, architected for rapid results, scaling, and reliability on any infrastructure.
-For more information about PKS, visit the [Pivotal Container Service](https://pivotal.io/platform/pivotal-container-service) page.
+The only step necessary is adding the `instana` gem; see the [Installation](https://docs.instana.io/ecosystem/ruby/#installation) section of the Instana Ruby documentation.
+
+##<a id='pks'></a> VMware Tanzu Kubernetes Grid Support
+
+VMware Tanzu Kubernetes Grid, formerly known as Pivotal Container Service (PKS), is an enterprise Kubernetes platform, architected for rapid results, scaling, and reliability on any infrastructure.
+For more information about VMware Tanzu Kubernetes Grid, visit the [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) page.
 
 ### Installation
 
-The Instana Microservices Application Monitoring for VMware Tanzu tile includes in technical preview the support for PKS.
+The Instana Microservices Application Monitoring for VMware Tanzu tile includes full support for VMware Tanzu Kubernetes Grid.
 See the [Installing and Configuring Instana Microservices Application Monitoring for VMware Tanzu](./installing.html) for guidance on how to install the Instana Microservices Application Monitoring for VMware Tanzu tile.
 
-After its rollout in a foundation with PKS installed, Instana's Kubernetes monitoring will be automatically deployed on all Kubernetes clusters created by the PKS Service Broker.
+After its rollout in a foundation with VMware Tanzu Kubernetes Grid installed, Instana's Kubernetes monitoring will be automatically deployed on all Kubernetes clusters created by the VMware Tanzu Kubernetes Grid Service Broker.
 
-Kubernetes clusters that already existed before the rollout of the Instana tile will need to be upgraded to receive the Instana agents; for more information on how to upgrade Kubernetes clusters via PKS, see the [Upgrading Clusters](https://docs.pivotal.io/pks/1-5/upgrade-clusters.html) page.
+Kubernetes clusters that already existed before the rollout of the Instana tile will need to be upgraded to receive the Instana agents; for more information on how to upgrade Kubernetes clusters via VMware Tanzu Kubernetes Grid, see the [Upgrading Clusters](https://docs.pivotal.io/pks/1-5/upgrade-clusters.html) page.
 
 ### Configuration
 
 Agent configurations specify to the tile will apply for agents running on BOSH as well as on Kubernetes; see the [Installing and Configuring Instana Microservices Application Monitoring for VMware Tanzu](./installing.html) page for an overview of which configurations can be set at the agent level.
-The only caveat is the reporting to multiple Instana backends, which is currently not supported on Kubernetes, see the [Caveats](#pks-caveats) section.
 
 ### Kubernetes Clusters in Instana
 
-Like all other supported Kubernetes versiona and distributions, Kubernetes clusters created via PKS are visible in the Kubernetes views of Instana.
+Like all other supported Kubernetes versiona and distributions, Kubernetes clusters created via VMware Tanzu Kubernetes Grid are visible in the Kubernetes views of Instana.
 
-![A Kubernetes cluster created with PKS in Instana](./assets/pks-k8s-cluster.png)
+![A Kubernetes cluster created with VMware Tanzu Kubernetes Grid in Instana](./assets/k8s-cluster.png)
 
-All features available for other Kubernetes distributions are also available for PKS.
-The Instana tile automatically configures the deployment of the agents to the Pod Security Policies settings configured in the PKS tile.
+All features available for other Kubernetes distributions are also available for VMware Tanzu Kubernetes Grid.
+The Instana tile automatically configures the deployment of the agents to the Pod Security Policies settings configured in the VMware Tanzu Kubernetes Grid tile.
 
 For more information on how Kubernetes is monitored by Instana, see the [Kubernetes](https://docs.instana.io/ecosystem/kubernetes/) page of the Instana documentation.
