@@ -164,9 +164,13 @@ See [Deploying with App Manifests](https://docs.cloudfoundry.org/devguide/deploy
 
 ###<a id='deploying-cf-applications-nodejs'></a> Deploying Node.js Apps with the Node.js Buildpack
 
+<p class='note'><strong>Tip:</strong> The <a href="#instana-cloudfoundry-buildpack"><code>instana_buildpack</code> buildpack</a> can automate this setup entirely, without code-changes in your codebase.</p>
+
 The only step necessary is adding the `@instana/collector` package; see the [Installation](https://docs.instana.io/ecosystem/node-js/#installation) section of the Instana Node.js documentation.
 
 ###<a id='deploying-cf-applications-python'></a> Deploying Python Apps with the Python Buildpack
+
+<p class='note'><strong>Tip:</strong> The <a href="#instana-cloudfoundry-buildpack"><code>instana_buildpack</code> buildpack</a> can automate this setup entirely, without code-changes in your codebase.</p>
 
 Monitoring Python Cloud Foundry applications requires the following steps:
 
@@ -185,7 +189,37 @@ applications:
 
 ###<a id='deploying-cf-applications-ruby'></a> Deploying Ruby Apps with the Ruby Buildpack
 
+<p class='note'><strong>Tip:</strong> The <a href="#instana-cloudfoundry-buildpack"><code>instana_buildpack</code> buildpack</a> can automate this setup entirely, without code-changes in your codebase.</p>
+
 The only step necessary is adding the `instana` gem; see the [Installation](https://docs.instana.io/ecosystem/ruby/#installation) section of the Instana Ruby documentation.
+
+###<a id='instana-cloudfoundry-buildpack'></a> Instana Cloud Foundry Buildpack
+
+<p class='note'><strong>Important:</strong> The <code>instana_buildpack</code> Cloud Foundry buildpack is currently in <i>experimental</i> status.
+The deployment of the <code>instana_buildpack</code> is opt-in in the tile under the <strong>Agent automatic configurations</strong> screen.</p>
+
+Since version 1.177.0, the tile integrates the `instana_buildpack` Cloud Foundry buildpack that automates the Instana setup of Node.js, Python or Ruby Cloud Foundry application.
+When the `instana_buildpack` is opted-in by the Cloud Foundry application manifest, it automatically configures the staging process to bake in the droplet (the container image that is run by Cloud Foundry) all that is needed to have that Cloud Foundry application monitored with Instana.
+
+The `instana_buildpack` is a so-called _decorator buildpack_, which adds logic and resources to the staging process, and must be used in conjunction with a _final_ buildpack, which actually launches the Cloud Foundry application instances.
+For example the following command line will use the `instana_buildpack` to automate monitoring of a Node.js application:
+
+`cf push -b instana_buildpack -b nodejs_buildpack`
+
+The same can be achieved defining multiple buildpacks in the application `manifest.yml` as follows:
+
+```yaml
+---
+applications:
+- name: test-nodejs
+  buildpacks:
+    - instana_buildpack
+    - nodejs_buildpack
+```
+
+For more information on how to use multiple buildpack when pushing Cloud Foundry applications, refer to the [Pushing an App with Multiple Buildpacks](https://docs.cloudfoundry.org/buildpacks/use-multiple-buildpacks.html) documentation.
+
+<p class='note'><strong>Important:</strong> The <code>instana_buildpack</code> buildpack must <strong>not</strong> be used as the <i>last</i> buildpack in the sequence of buildpacks, as that will result in a staging error.</p>
 
 ##<a id='pks'></a> VMware Tanzu Kubernetes Grid Support
 
