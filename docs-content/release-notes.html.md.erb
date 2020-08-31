@@ -14,6 +14,20 @@ When you release a new version, add new release notes to this file, keeping the 
 
 These are release notes for Instana Microservices Application Monitoring for VMware Tanzu.
 
+##<a id="v1.185.0"></a> v1.185.0
+
+**Release Date:** August 21, 2020
+
+New features:
+
+* Added support for TAS 2.10
+
+Bug fix:
+
+* Increase resilience of leadership-election mechanism for the Cloud Foundry sensor on TAS and the Daemonset Deployer on TKGI by swapping out the leadership-election release for the zookeeper-release.
+* Fix Garden container CPU metrics calculation
+* Fix JVM attachment issues
+
 ##<a id="v1.183.0"></a> v1.183.0
 
 **Release Date:** August 4, 2020
