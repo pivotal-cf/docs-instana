@@ -16,8 +16,10 @@ To install Instana Microservices Application Monitoring for VMware Tanzu on the 
 3. Under the **Import a Product** button, click **+** next to the version number of Instana Microservices Application Monitoring for VMware Tanzu.
 This adds the tile to your staging area.
 4. Click the newly added Instana Microservices Application Monitoring for VMware Tanzu tile.
-![The Instana Microservices Application Monitoring for VMware Tanzu tile is added, and it need a minimal configuration](./assets/tile-added.png)
-5. Instana Microservices Application Monitoring for VMware Tanzu requires minimal configuration:
+
+![alt-text="The Instana Microservices Application Monitoring for VMware Tanzu tile is added, and it need a minimal configuration."](./assets/tile-added.png)
+
+1. Instana Microservices Application Monitoring for VMware Tanzu requires minimal configuration:
 
   - **Backend connection** menu:
     - **Endpoint host**: the DNS name of the Instana backend, e.g., `saas-us-west-2.instana.io`
@@ -30,10 +32,12 @@ This adds the tile to your staging area.
     - **Update mode**: if the agent should update itself regularly (recommended), or rather keep to a specific version; see [Configuring automatic updates for the Instana Agents](#updates) for more information
 
 6. Click **Save**.
-![The Instana Microservices Application Monitoring for VMware Tanzu tile is configured](./assets/configure-updates.png)
-7. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install Instana Microservices Application Monitoring for VMware Tanzu.
 
-8. The Instana agent is rolled out to the VMware Tanzu foundation.
+![alt-text="The Instana Microservices Application Monitoring for VMware Tanzu tile is configured."](./assets/configure-updates.png)
+
+1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install Instana Microservices Application Monitoring for VMware Tanzu.
+
+2. The Instana agent is rolled out to the VMware Tanzu foundation.
 
 After the changes have been rolled out, whenever a new Virtual Machine is created in the VMware Tanzu foundation, for example by adding new tiles or creating new service instances, the Instana agent is automatically added to it.
 
@@ -83,7 +87,7 @@ It is possible to roll out changes only to the relevant tiles in the VMware Tanz
 Some advanced configurations of the Instana agent are triggered via environment variables.
 Environment variables on the Instana agent are set using the **Advanced configurations > Environment settings** menu.
 
-![Setting the `USE_ATTACH_TOOLS` advanced configuration in the **Advanced configurations** menu](./assets/advanced-settings.png)
+![alt-text="Setting the `USE_ATTACH_TOOLS` advanced configuration in the **Advanced configurations** menu."](./assets/advanced-settings.png)
 
 After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the VMware Tanzu foundation.
 It is possible to roll out changes only to the relevant tiles in the VMware Tanzu foundation.
