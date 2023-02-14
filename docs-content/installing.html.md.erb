@@ -7,17 +7,20 @@ owner: Partners
 
 This topic describes how to install and configure Instana Microservices Application Monitoring for VMware Tanzu.
 
-##<a id='install'></a> Install and Configure Instana Microservices Application Monitoring for VMware Tanzu
+## <a id='install'></a> Install and Configure Instana Microservices Application Monitoring for VMware Tanzu
 
 To install Instana Microservices Application Monitoring for VMware Tanzu on the Ops Manager Installation Dashboard, do the following:
 
 1. Download the product file from VMware Tanzu Network.
-2. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
-3. Under the **Import a Product** button, click **+** next to the version number of Instana Microservices Application Monitoring for VMware Tanzu.
-This adds the tile to your staging area.
-4. Click the newly added Instana Microservices Application Monitoring for VMware Tanzu tile.
 
-![alt-text="The Instana Microservices Application Monitoring for VMware Tanzu tile is added, and it need a minimal configuration."](./assets/tile-added.png)
+1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file.
+
+1. Under the **Import a Product** button, click **+** next to the version number of Instana Microservices Application Monitoring for VMware Tanzu.
+This adds the tile to your staging area.
+
+1. Click the newly added Instana Microservices Application Monitoring for VMware Tanzu tile.
+
+  ![The Instana Microservices Application Monitoring for VMware Tanzu tile is added, and it need a minimal configuration.](./assets/tile-added.png)
 
 1. Instana Microservices Application Monitoring for VMware Tanzu requires minimal configuration:
 
@@ -31,17 +34,17 @@ This adds the tile to your staging area.
   - **Agent Configuration** menu:
     - **Update mode**: if the agent should update itself regularly (recommended), or rather keep to a specific version; see [Configuring automatic updates for the Instana Agents](#updates) for more information
 
-6. Click **Save**.
+1. Click **Save**.
 
-![alt-text="The Instana Microservices Application Monitoring for VMware Tanzu tile is configured."](./assets/configure-updates.png)
+  ![The Instana Microservices Application Monitoring for VMware Tanzu tile is configured.](./assets/configure-updates.png)
 
 1. Return to the Ops Manager Installation Dashboard and click **Apply Changes** to install Instana Microservices Application Monitoring for VMware Tanzu.
 
-2. The Instana agent is rolled out to the VMware Tanzu foundation.
+1. The Instana agent is rolled out to the VMware Tanzu foundation.
 
 After the changes have been rolled out, whenever a new Virtual Machine is created in the VMware Tanzu foundation, for example by adding new tiles or creating new service instances, the Instana agent is automatically added to it.
 
-##<a id='updates'></a> Configuring Updates for the Instana Agents
+## <a id='updates'></a> Configuring Updates for the Instana Agents
 
 Instana Microservices Application Monitoring for VMware Tanzu is self-contained, meaning that it ships with a version of the Instana agent that has all sensors needed to monitor VMware Tanzu, its services, and the applications running on it.
 
@@ -64,16 +67,16 @@ To change which version is pinned, the configuration change will require applyin
 In cases requiring advanced control in terms of how updates are rolled out, end users can point the agents to internal Maven-compatible repositories, as means of tighly regulating the rollout of updates.
 For more information about configuring agent updates, see the [Agent Versioning and Update Management](https://docs.instana.io/quick_start/agent_configuration/#agent-versioning-and-update-management) section of the Instana documentation.
 
-##<a id='advanced-configurations'></a> Configuring Advanced Configurations for the Instana Agents
+## <a id='advanced-configurations'></a> Configuring Advanced Configurations for the Instana Agents
 
 Instana Microservices Application Monitoring for VMware Tanzu offers some configuration options that are seldom required through the **Advanced configurations** menu.
 
-###<a id='download-key'></a> Download Key
+### <a id='download-key'></a> Download Key
 
 The **Advanced configurations > Download key** setting allows to specify which secret is used by agents to download their updates.
 This setting is only ever required in case you are running you own mirror of Instana's updates repository and have set up a different authentication secret than the value of **Backend connection > Agent key**.
 
-###<a id='multiple-instana-backends'></a> Multiple Instana Backends
+### <a id='multiple-instana-backends'></a> Multiple Instana Backends
 
 The **Backend connection > Report to additional Instana backends** setting allows to specify additional backends, on top of the one that is specified in the **Backend connection** tab.
 The proxy settings specified in the **Backend connection** tab apply also to the backends configured via the **Backend connection > Report to additional Instana backends** setting.
@@ -82,7 +85,7 @@ Up to three additional backends are supported, so the Instana agents can be conf
 After saving the new configurations, it is necessary to **Apply Changes** in the OpsManager dashboard to roll them out to the Instana agents installed across the VMware Tanzu foundation.
 It is possible to roll out changes only to the relevant tiles in the VMware Tanzu foundation.
 
-###<a id='agent-environment'></a> Agent Environment
+### <a id='agent-environment'></a> Agent Environment
 
 Some advanced configurations of the Instana agent are triggered via environment variables.
 Environment variables on the Instana agent are set using the **Advanced configurations > Environment settings** menu.
