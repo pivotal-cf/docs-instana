@@ -126,38 +126,38 @@ The Instana Microservices Application Monitoring for VMware Tanzu supports the m
 
 - Add the Instana Nuget package to the Cloud Foundry application by performing the following command:
 
-```sh
-dotnet add myproject.csproj package Instana.Profiler.Linux.Bundled.Refs
-```
+  ```sh
+  dotnet add myproject.csproj package Instana.Profiler.Linux.Bundled.Refs
+  ```
 
 - Prepare the DotNet Core application to be published:
 
-```sh
-dotnet publish -c Release
-```
+  ```sh
+  dotnet publish -c Release
+  ```
 
 - Add the following environment variables to the application manifest:
 
-```yaml
----
-applications:
-- name: <application_name>
-  path: bin/Release/netcoreapp3.1/publish/
-  env:
-    CORECLR_ENABLE_PROFILING: 1
-    CORECLR_PROFILER: "{cf0d821e-299b-5307-a3d8-b283c03916dd}"
-    CORECLR_PROFILER_PATH: "/home/vcap/app/instana_tracing/CoreProfiler.so"
-    LD_LIBRARY_PATH: "/home/vcap/app/instana_tracing"
-    DOTNET_STARTUP_HOOKS: "/home/vcap/app/Instana.Tracing.Core.dll"
-```
+  ```yaml
+  ---
+  applications:
+  - name: <application_name>
+    path: bin/Release/netcoreapp3.1/publish/
+    env:
+      CORECLR_ENABLE_PROFILING: 1
+      CORECLR_PROFILER: "{cf0d821e-299b-5307-a3d8-b283c03916dd}"
+      CORECLR_PROFILER_PATH: "/home/vcap/app/instana_tracing/CoreProfiler.so"
+      LD_LIBRARY_PATH: "/home/vcap/app/instana_tracing"
+      DOTNET_STARTUP_HOOKS: "/home/vcap/app/Instana.Tracing.Core.dll"
+  ```
 
 Notice that the value of the `path` variable may change depending on the .NET Core SDK being used and the name of the configuration passed to the `dotnet publish -c Release` via the `-c` flag, which in this example is `Release`.
 
 - Push the Cloud Foundry application using the `cf push` command:
 
-```sh
-cf push
-```
+  ```sh
+  cf push
+  ```
 
 Notice that the command above assumes that the application's `manifest.mf` file resides in the folder from which the `cf push` command is executed.
 See [Deploying with App Manifests](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html) page for more information on how to use the `cf push` command together with a manifest file.
@@ -177,15 +177,15 @@ Monitoring Python Cloud Foundry applications requires the following steps:
 - Add the `instana` package to the `requirements.txt` file
 - Add to the application manifest the `AUTOWRAPT_BOOTSTRAP` environment variable with value `instana` as showed below
 
-```yaml
----
-applications:
-- name: test-python-flask
-  buildpacks:
-    - python_buildpack
-  env:
-    AUTOWRAPT_BOOTSTRAP: instana
-```
+  ```yaml
+  ---
+  applications:
+  - name: test-python-flask
+    buildpacks:
+      - python_buildpack
+    env:
+      AUTOWRAPT_BOOTSTRAP: instana
+  ```
 
 ###<a id='deploying-cf-applications-ruby'></a> Deploying Ruby Apps with the Ruby Buildpack
 
