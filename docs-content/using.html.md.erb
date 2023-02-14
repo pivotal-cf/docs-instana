@@ -204,7 +204,9 @@ When the `instana_buildpack` is opted-in by the Cloud Foundry application manife
 The `instana_buildpack` is a so-called _decorator buildpack_, which adds logic and resources to the staging process, and must be used in conjunction with a _final_ buildpack, which actually launches the Cloud Foundry application instances.
 For example the following command line will use the `instana_buildpack` to automate monitoring of a Node.js application:
 
-`cf push -b instana_buildpack -b nodejs_buildpack`
+```
+cf push -b instana_buildpack -b nodejs_buildpack
+```
 
 The same can be achieved defining multiple buildpacks in the application `manifest.yml` as follows:
 
