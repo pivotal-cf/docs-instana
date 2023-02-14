@@ -24,8 +24,8 @@ After installation, the Instana agent is rolled out to all the supported Virtual
 
 The Infrastructure Map of Instana provides the end user with powerful tools to make sense or the largest deployments:
 
-- Dynamic Focus is a robust, full blown editor capable of searching through multiple data contexts simultaneously; see the [Dynamic Focus](https://docs.instana.io/core_concepts/dynamic_focus) Instana documentation for more information about how to use Dynamic Focus
-- Grouping and perspectives are a way to organize large infrastructures in manageable groups; for more information, see the [Infrastructure Monitoring](https://docs.instana.io/products/infrastructure_monitoring/) Instana documentation for more information about how to use grouping and perspectives in the Infrastructure Map
+- Dynamic Focus is a robust, full blown editor capable of searching through multiple data contexts simultaneously; see the [Dynamic Focus](https://www.ibm.com/docs/en/instana-observability/current?topic=instana-filtering-dynamic-focus) Instana documentation for more information about how to use Dynamic Focus
+- Grouping and perspectives are a way to organize large infrastructures in manageable groups; for more information, see the [Infrastructure Monitoring](https://www.ibm.com/docs/en/instana-observability/current?topic=instana-monitoring-infrastructure) Instana documentation for more information about how to use grouping and perspectives in the Infrastructure Map
 
 Out of the box, Instana Microservices Application Monitoring for VMware Tanzu provides the following BOSH-related tags to aid with grouping:
 
@@ -51,8 +51,8 @@ By default Instana lists all application it detects from all reporting clusters.
 
 ### <a id='application-dashboards'></a> Application Dashboard
 
-The Cloud Foundry Application dashboard contains the most important information for an application to check for the status and any problems. It lists the Garden containers that this application is made of and links to a detailed Garden Container dashboard; for more information on how Instana monitors Garden containers, head over the [Garden Container](https://docs.instana.io/ecosystem/garden/) page.
-It also provides access to all calls to this application via the ["Analyze Calls"](https://docs.instana.io/core_concepts/tracing/) button.
+The Cloud Foundry Application dashboard contains the most important information for an application to check for the status and any problems. It lists the Garden containers that this application is made of and links to a detailed Garden Container dashboard; for more information on how Instana monitors Garden containers, head over the [Garden Container](https://www.ibm.com/docs/en/instana-observability/current?topic=instana-monitoring-cloud-foundry-vmware-tanzu#garden-containers) page.
+It also provides access to all calls to this application via the ["Analyze Calls"](https://www.ibm.com/docs/en/instana-observability/current?topic=applications-analyzing-traces-calls) button.
 
 ![alt-text="Cloud Foundry Application Dashboard"](./assets/cf-app-dashboard.png)
 
@@ -65,7 +65,7 @@ The applications deployed on a VMware Tanzu foundation monitored with the Instan
 ##<a id='maintenance-windows'></a> Automatic Maintenance Windows for BOSH deployments
 
 The Instana tile automatically detects BOSH deployments running across the VMware Tanzu foundation and automatically create, schedule and unschedule maintenance windows.
-For more information on the "Maintenance Windows" feature of Instana, please consult the [Maintenance Windows](https://docs.instana.io/quick_start/alerting/#maintenance-windows) documentation page.
+For more information on the "Maintenance Windows" feature of Instana, please consult the [Scheduling maintenance windows](https://www.ibm.com/docs/en/instana-observability/current?topic=alerts-scheduling-maintenance-windows) documentation page.
 
 The "Automatic Maintenance Windows" feature of the tile requires the following configurations:
 
@@ -83,7 +83,7 @@ In foundations with many service instances, each of which usually has a a dedica
 Let us know what you think of it!</p>
 
 The Instana tile automatically detects BOSH deployments running across the VMware Tanzu foundation and reports them in Instana as a `releases` of the Pipeline Feedback functionality.
-For more information on the Pipeline Feedback functionality, please consult the [Pipeline Feedback](https://docs.instana.io/core_concepts/pipeline_feedback) documentation page.
+For more information on the Pipeline Feedback functionality, please consult the [Pipeline Feedback](https://www.ibm.com/docs/en/instana-observability/current?topic=capabilities-pipeline-feedback) documentation page.
 
 The "Pipeline Feedback for BOSH deployments" feature is opt-in.
 To turn it on, head over to the Instana tile configurations in OpsManager and activate the **Agent automatic configurations > [Experimental] Pipeline Feedback for BOSH** option.
@@ -233,7 +233,7 @@ See the [Installing and Configuring Instana Microservices Application Monitoring
 
 After its rollout in a foundation with VMware Tanzu Kubernetes Grid installed, Instana's Kubernetes monitoring will be automatically deployed on all Kubernetes clusters created by the VMware Tanzu Kubernetes Grid Service Broker.
 
-Kubernetes clusters that already existed before the rollout of the Instana tile will need to be upgraded to receive the Instana agents; for more information on how to upgrade Kubernetes clusters via VMware Tanzu Kubernetes Grid, see the [Upgrading Clusters](https://docs.pivotal.io/pks/1-5/upgrade-clusters.html) page.
+Kubernetes clusters that already existed before the rollout of the Instana tile will need to be upgraded to receive the Instana agents; for more information on how to upgrade Kubernetes clusters via VMware Tanzu Kubernetes Grid, see the [Upgrading Clusters](https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid-Integrated-Edition/1.14/tkgi/GUID-upgrade-clusters.html) page.
 
 ### Configuration
 
