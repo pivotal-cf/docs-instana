@@ -25,13 +25,15 @@ This adds the tile to your staging area.
 1. Instana Microservices Application Monitoring for VMware Tanzu requires minimal configuration:
 
   - **Backend connection** menu:
+
     - **Endpoint host**: the DNS name of the Instana backend, e.g., `saas-us-west-2.instana.io`
     - **Endpoint port**: the port number on which the Instana backend listens; for the SaaS offering of Instana, the value is `443`, but it can be configured differently for on-premise Instana backend installations
     - **Agent key**: the secret used by the Instana agent to authenticate itself to the Instana backend
 
-      **NOTE:** The data required for the configurations listed above is readily available in the Instana dashboard, under **More** &gt; **Management Portal** &gt; **Install agent**.
+    **NOTE:** The data required for the configurations listed above is readily available in the Instana dashboard, under **More** &gt; **Management Portal** &gt; **Install agent**.
 
   - **Agent Configuration** menu:
+
     - **Update mode**: if the agent should update itself regularly (recommended), or rather keep to a specific version; see [Configuring automatic updates for the Instana Agents](#updates) for more information
 
 1. Click **Save**.
